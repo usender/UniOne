@@ -5,3 +5,12 @@ https://docs.unione.io/
 
 ## Official documentation
 https://docs.unione.io/en/web-api-ref?http#web-api
+
+## How to Get AsterNET
+- Download a release: https://github.com/usender/unione/releases
+
+- Download the latest source code from GitHub project
+
+- Download via NuGet:
+> Install-Package Sender.UniOne.ApiClient
+or by visiting: https://www.nuget.org/packages/Sender.UniOne.ApiClient/
