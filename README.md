@@ -13,4 +13,5 @@ https://docs.unione.io/
 
 - Download via NuGet:
 > Install-Package Sender.UniOne.ApiClient
+> 
 or by visiting: https://www.nuget.org/packages/Sender.UniOne.ApiClient/
