@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Authors>Usender</Authors>
+    <Company>Usender applications</Company>
+    <Product>Unione</Product>
+    <Description>Unione automated transactional email system</Description>
+    <RepositoryUrl>https://github.com/usender/unione</RepositoryUrl>
+    <PackageTags>C#, net-standard</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
