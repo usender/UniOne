@@ -8,6 +8,9 @@
     <Description>Unione automated transactional email system</Description>
     <RepositoryUrl>https://github.com/usender/unione</RepositoryUrl>
     <PackageTags>C#, net-standard</PackageTags>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
+    <PackageProjectUrl />
+    <PackageReleaseNotes>Initial beta version</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
