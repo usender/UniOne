@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UniOne\Sender.UniOne.ApiClient.csproj" />
+    <ProjectReference Include="..\UniOne.ApiClient\Sender.UniOne.ApiClient.csproj" />
   </ItemGroup>
 
 </Project>
