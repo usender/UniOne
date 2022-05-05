@@ -19,6 +19,9 @@ using Sender.UniOne.ApiClient.Webhook.Models;
 
 namespace Sender.UniOne.ApiClient
 {
+    /// <summary>
+    /// Uni one API client
+    /// </summary>
     public class UniOneClient
     {
         private readonly HttpClient _httpClient;
@@ -35,6 +38,13 @@ namespace Sender.UniOne.ApiClient
 
         #region Email
 
+        /// <summary>
+        /// Sends an email or a bunch of emails
+        /// </summary>
+        /// <param name="message"></param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x</exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<MessageResponse> EmailSendAsync(EmailMessage message)
         {
             var request = new MessageRequest(message);
@@ -130,6 +140,8 @@ namespace Sender.UniOne.ApiClient
         /// </summary>
         /// <param name="email">Email to get suppression details fo</param>
         /// <param name="allProjects">If a user has projects functionality enabled, he/she can pass all_projects=true to search in all projects’ data.</param>
+        /// <exception cref="UniOneClientException"></exception>
+        /// <exception cref="UniOneClientValidationException"></exception>
         /// <returns></returns>
         public Task<SuppressionGetResponse> SuppressionGetAsync(string email, bool allProjects)
         {

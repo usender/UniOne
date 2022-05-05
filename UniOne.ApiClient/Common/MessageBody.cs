@@ -20,6 +20,16 @@ namespace Sender.UniOne.ApiClient.Common
             Amp
         }
 
+        public MessageBody()
+        {
+
+        }
+
+        public MessageBody(string emailBody, Type type = Type.Auto)
+        {
+            SetBody(emailBody, type);
+        }
+
         /// <summary>
         /// Html part of the letter body
         /// </summary>
