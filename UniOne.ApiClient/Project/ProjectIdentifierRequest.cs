@@ -10,9 +10,15 @@ namespace Sender.UniOne.ApiClient.Project
             ProjectApiKey = project.ProjectApiKey;
         }
 
+        /// <summary>
+        /// Optional possibility to specify project_id to include only this project to list
+        /// </summary>
         [JsonProperty("project_id")]
         public string ProjectId { get; set; }
 
+        /// <summary>
+        /// Optional possibility to specify project_api_key to include only this project to list
+        /// </summary>
         [JsonProperty("project_api_key")]
         public string ProjectApiKey { get; set; }
     }

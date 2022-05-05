@@ -4,10 +4,14 @@ namespace Sender.UniOne.ApiClient.Project
 {
     public class ProjectIdentifier
     {
-        [JsonProperty("project_id")]
+        /// <summary>
+        /// Optional possibility to specify project_id to include only this project to list
+        /// </summary>
         public string ProjectId { get; set; }
 
-        [JsonProperty("project_api_key")]
+        /// <summary>
+        /// Optional possibility to specify project_api_key to include only this project to list
+        /// </summary>
         public string ProjectApiKey { get; set; }
     }
 }

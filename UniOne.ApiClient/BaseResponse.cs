@@ -12,6 +12,7 @@ namespace Sender.UniOne.ApiClient
         /// <summary>
         /// Display the response status. True if success, otherwise false
         /// </summary>
+        [JsonProperty("is_success")]
         public bool IsSuccess => Status == STATUS_SUCCESS;
 
         /// <summary>
@@ -21,8 +22,9 @@ namespace Sender.UniOne.ApiClient
         public string Status { get; internal set; }
 
         /// <summary>
-        /// Failure response. Null when status is "success" or property IsSuccess is true, otherwise see object data>
+        /// Failure response. Null when status is "success" or property IsSuccess is true, otherwise see object data
         /// </summary>
+        [JsonProperty("failure")]
         public FailureResponse Failure
         {
             get => _failureResponse;
