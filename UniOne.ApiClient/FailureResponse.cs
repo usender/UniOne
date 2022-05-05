@@ -8,12 +8,12 @@ namespace Sender.UniOne.ApiClient
         /// <see cref="http://docs.unione.io/ru/web-api-ref?csharp#api-errors"/>
         /// </summary>
         [JsonProperty("code")]
-        public int Code { get; set; }
+        public int Code { get; internal set; }
 
         /// <summary>
         /// Human-readable error message
         /// </summary>
         [JsonProperty("message")]
-        public string Message { get; set; }
+        public string Message { get; internal set; }
     }
 }

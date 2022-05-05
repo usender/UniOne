@@ -7,9 +7,9 @@ namespace Sender.UniOne.ApiClient.Email
     /// Uni sender configuration request
     /// For detail <see cref="http://eu1.unione.io/en/docs/page/email_send_v1"/>
     /// </summary>
-    internal class MessageRequest : BaseRequest
+    internal class EmailMessageRequest : BaseRequest
     {
-        public MessageRequest(EmailMessage message)
+        public EmailMessageRequest(EmailMessage message)
         {
             Message = message;
         }

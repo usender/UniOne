@@ -26,7 +26,7 @@ namespace Sender.UniOne.ApiClient
         public FailureResponse Failure
         {
             get => _failureResponse;
-            set
+            internal set
             {
                 _failureResponse = value;
                 Status = STATUS_ERROR;

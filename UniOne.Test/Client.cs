@@ -17,7 +17,7 @@ namespace Sender.UniOne.Test
             _uniOneClient = new UniOneClient(settings);
         }
 
-        public Task<MessageResponse> EmailSendAsync(string fromEmail, string[] toEmails)
+        public Task<EmailMessageResponse> EmailSendAsync(string fromEmail, string[] toEmails)
         {
             var emailMessage = new EmailMessage
             {

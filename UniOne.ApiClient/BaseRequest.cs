@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Apis;
+using Sender.UniOne.ApiClient.Infrastructure.Exceptions;
 using Sender.UniOne.ApiClient.Infrastructure.Extensions;
 
 namespace Sender.UniOne.ApiClient
@@ -26,12 +27,15 @@ namespace Sender.UniOne.ApiClient
 
         protected internal virtual void Validate()
         {
+            if(string.IsNullOrWhiteSpace(ApiKey))
+                throw new UniOneClientValidationException("Invalid api key");
+
             var results = new List<ValidationResult>();
             var context = new ValidationContext(this);
 
             if (!Validator.TryValidateObject(this, context, results, true))
             {
-                throw new ValidationException(results[0].ErrorMessage);
+                throw new UniOneClientValidationException(results[0].ErrorMessage);
             }
         }
     }

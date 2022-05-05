@@ -40,17 +40,25 @@ namespace Sender.UniOne.ApiClient
 
         /// <summary>
         /// Sends an email or a bunch of emails
+        /// While sending you can provide substitutions (merge tags), use a template, turn on read or click tracking, etc.
         /// </summary>
-        /// <param name="message"></param>
-        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x</exception>
+        /// <param name="message">Email message object</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
         /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
         /// <returns></returns>
-        public Task<MessageResponse> EmailSendAsync(EmailMessage message)
+        public Task<EmailMessageResponse> EmailSendAsync(EmailMessage message)
         {
-            var request = new MessageRequest(message);
-            return GetResponseAsync<MessageResponse>(request);
+            var request = new EmailMessageRequest(message);
+            return GetResponseAsync<EmailMessageResponse>(request);
         }
 
+        /// <summary>
+        /// Sends an email with (re)subscribe link
+        /// </summary>
+        /// <param name="subscribe">Subscribe object</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<EmailSubscribeResponse> EmailSubscribeAsync(Subscribe subscribe)
         {
             var request = new EmailSubscribeRequest(subscribe);
@@ -61,24 +69,52 @@ namespace Sender.UniOne.ApiClient
 
         #region Template
 
+        /// <summary>
+        /// Gets template properties by it’s id
+        /// </summary>
+        /// <param name="templateId">Template identifier</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<TemplateGetResponse> TemplateGetAsync(string templateId)
         {
             var request = new TemplateGetRequest(templateId);
             return GetResponseAsync<TemplateGetResponse>(request);
         }
 
+        /// <summary>
+        /// Creates or updates an email template
+        /// </summary>
+        /// <param name="template">Template object</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<TemplateSetResponse> TemplateSetAsync(TemplateMessage template)
         {
             var request = new TemplateSetRequest(template);
             return GetResponseAsync<TemplateSetResponse>(request);
         }
 
+        /// <summary>
+        /// Deletes a template by id
+        /// </summary>
+        /// <param name="templateId">Template identifier</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<TemplateDeleteResponse> TemplateDeleteAsync(string templateId)
         {
             var request = new TemplateDeleteRequest(templateId);
             return GetResponseAsync<TemplateDeleteResponse>(request);
         }
 
+        /// <summary>
+        /// Returns the list of all or some templates of the account
+        /// </summary>
+        /// <param name="page">Page</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<TemplateListResponse> TemplateListAsync(Page page)
         {
             var request = new TemplateListRequest(page);
@@ -89,21 +125,50 @@ namespace Sender.UniOne.ApiClient
 
         #region Webhook
 
+        /// <summary>
+        /// Gets properties of a webhook
+        /// </summary>
+        /// <param name="url">Webhook URL</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<WebhookGetResponse> WebhookGetAsync(string url)
         {
             return GetResponseAsync<WebhookGetResponse>(new WebhookGetRequest(url));
         }
 
+        /// <summary>
+        /// Sets or edits a webhook, i.e. an event notification handler
+        /// </summary>
+        /// <param name="webhookSet">Webhook object</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<WebhookSetResponse> WebhookSetAsync(WebhookSet webhookSet)
         {
             return GetResponseAsync<WebhookSetResponse>(new WebhookSetRequest(webhookSet));
         }
 
+        /// <summary>
+        /// List all or some webhooks (event notification handlers) of a user or a project
+        /// </summary>
+        /// <param name="page">Page</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<WebhookListResponse> WebhookListAsync(Page page)
         {
             return GetResponseAsync<WebhookListResponse>(new WebhookListRequest(page));
         }
 
+        /// <summary>
+        /// Deletes an event notification handler
+        /// You can also temporarily deactivate webhook without deleting it by setting it’s status to “disabled” in webhook/set method.
+        /// </summary>
+        /// <param name="url">Webhook URL</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<WebhookDeleteResponse> WebhookDeleteAsync(string url)
         {
             return GetResponseAsync<WebhookDeleteResponse>(new WebhookDeleteRequest(url));
@@ -113,18 +178,39 @@ namespace Sender.UniOne.ApiClient
 
         #region Unsubscribed
 
+        /// <summary>
+        /// Registers a new unsubscribed email
+        /// </summary>
+        /// <param name="email">Email to be unsubscribed</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<UnsubscribedSetResponse> UnsubscribedSetAsync(string email)
         {
             var request = new UnsubscribedSetRequest(email);
             return GetResponseAsync<UnsubscribedSetResponse>(request);
         }
 
+        /// <summary>
+        /// Checks if an email is unsubscribed
+        /// </summary>
+        /// <param name="email">Email to check</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<UnsubscribedCheckResponse> UnsubscribedCheckAsync(string email)
         {
             var request = new UnsubscribedCheckRequest(email);
             return GetResponseAsync<UnsubscribedCheckResponse>(request);
         }
 
+        /// <summary>
+        /// Returns a list of all unsubscribed emails since provided date
+        /// </summary>
+        /// <param name="startDate">Date to get all unsubscribed emails from the “date_from” to the present day. If the parameter is not specified, the default period is today (from 00:00 UTC).</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<UnsubscribedListResponse> UnsubscribedListAsync(DateTime startDate)
         {
             var request = new UnsubscribedListRequest(startDate);
@@ -138,7 +224,7 @@ namespace Sender.UniOne.ApiClient
         /// <summary>
         /// Gets a reason and date of email suppression
         /// </summary>
-        /// <param name="email">Email to get suppression details fo</param>
+        /// <param name="email">Email to get suppression details for</param>
         /// <param name="allProjects">If a user has projects functionality enabled, he/she can pass all_projects=true to search in all projects’ data.</param>
         /// <exception cref="UniOneClientException"></exception>
         /// <exception cref="UniOneClientValidationException"></exception>
@@ -158,6 +244,8 @@ namespace Sender.UniOne.ApiClient
         /// Deletes an email from suppression list (only records with is_deletable=true). If there are no entries of this email in the suppression list, API error 3003 is returned. If such entries exist but no one can be deleted, API error 3004 is returned. If daily limit of deletes exceeded, API error 906 is returned
         /// </summary>
         /// <param name="email">An email to delete from suppression list</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
         /// <returns></returns>
         public Task<SuppressionDeleteResponse> SuppressionDeleteAsync(string email)
         {
@@ -177,6 +265,8 @@ namespace Sender.UniOne.ApiClient
         /// Returns info on domain DNS setup for using with UniOne.
         /// </summary>
         /// <param name="domain">Domain to get DNS records for.</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
         /// <returns></returns>
         public Task<GetDnsRecordResponse> DomainGetDnsAsync(string domain)
         {
@@ -188,6 +278,8 @@ namespace Sender.UniOne.ApiClient
         /// Triggers verification record validation for domain.
         /// </summary>
         /// <param name="domain">Domain to validate verification record for.</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
         /// <returns></returns>
         public Task<ValidateVerificationResponse> DomainValidateVerificationAsync(string domain)
         {
@@ -199,6 +291,8 @@ namespace Sender.UniOne.ApiClient
         /// Validates DKIM record for domain.
         /// </summary>
         /// <param name="domain">Domain to validate DKIM record for.</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
         /// <returns></returns>
         public Task<ValidateDkimResponse> DomainValidateDkimAsync(string domain)
         {
@@ -211,11 +305,12 @@ namespace Sender.UniOne.ApiClient
         /// </summary>
         /// <param name="domain">Optional domain name if you want to get the status of single domain only</param>
         /// <param name="page">Page of entries</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
         /// <returns></returns>
         public Task<DomainListResponse> DomainListAsync(string domain, Page page)
         {
             var request = new DomainListRequest(domain, page);
-
             return GetResponseAsync<DomainListResponse>(request);
         }
 
@@ -223,24 +318,53 @@ namespace Sender.UniOne.ApiClient
 
         #region Project
 
+        /// <summary>
+        /// Creates a new project
+        /// </summary>
+        /// <param name="project">Object with project properties</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<ProjectCreateResponse> ProjectCreateAsync(ProjectInfo project)
         {
             var request = new ProjectCreateRequest(project);
             return GetResponseAsync<ProjectCreateResponse>(request);
         }
 
+        /// <summary>
+        /// Updates a project
+        /// </summary>
+        /// <param name="identifier">Project identifier</param>
+        /// <param name="project"></param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<ProjectUpdateResponse> ProjectUpdateAsync(ProjectIdentifier identifier, ProjectInfo project)
         {
             var request = new ProjectUpdateRequest(identifier, project);
             return GetResponseAsync<ProjectUpdateResponse>(request);
         }
 
+        /// <summary>
+        /// Deletes a project
+        /// </summary>
+        /// <param name="projectIdentifier">Project identifier</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<ProjectDeleteResponse> ProjectDeleteAsync(ProjectIdentifier projectIdentifier)
         {
             var request = new ProjectDeleteRequest(projectIdentifier);
             return GetResponseAsync<ProjectDeleteResponse>(request);
         }
 
+        /// <summary>
+        /// Lists projects
+        /// </summary>
+        /// <param name="projectIdentifier"></param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         public Task<ProjectListResponse> ProjectListAsync(ProjectIdentifier projectIdentifier)
         {
             var request = new ProjectListRequest(projectIdentifier);
@@ -252,8 +376,10 @@ namespace Sender.UniOne.ApiClient
         #region System
 
         /// <summary>
-        /// System information
+        /// Gets user or project info by API key
         /// </summary>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
         /// <returns>User or project info</returns>
         public Task<SystemInfoResponse> SystemInfoAsync()
         {
@@ -263,6 +389,14 @@ namespace Sender.UniOne.ApiClient
 
         #endregion
 
+        /// <summary>
+        /// Get response 
+        /// </summary>
+        /// <typeparam name="T">Response object</typeparam>
+        /// <param name="request">Request object</param>
+        /// <exception cref="UniOneClientException">Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidateRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
         private async Task<T> GetResponseAsync<T>(BaseRequest request) where T : BaseResponse, new()
         {
             if (_settings.IsNeedValidateRequestBeforeSending)
