@@ -3,6 +3,9 @@ using Newtonsoft.Json;
 
 namespace Sender.UniOne.ApiClient.Email
 {
+    /// <summary>
+    /// Message options
+    /// </summary>
     public class MessageOptions
     {
         /// <summary>

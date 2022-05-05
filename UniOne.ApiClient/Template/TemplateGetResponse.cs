@@ -5,6 +5,6 @@ namespace Sender.UniOne.ApiClient.Template
     public class TemplateGetResponse : BaseResponse
     {
         [JsonProperty("template")]
-        public TemplateMessage Template { get; set; }
+        public TemplateMessage Template { get; internal set; }
     }
 }

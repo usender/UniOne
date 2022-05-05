@@ -2,6 +2,9 @@
 
 namespace Sender.UniOne.ApiClient
 {
+    /// <summary>
+    /// Failure response
+    /// </summary>
     public class FailureResponse
     {
         /// <summary>

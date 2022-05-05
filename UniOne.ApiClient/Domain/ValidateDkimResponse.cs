@@ -8,6 +8,6 @@ namespace Sender.UniOne.ApiClient.Domain
         /// Debug message
         /// </summary>
         [JsonProperty("message")]
-        public string Message { get; set; }
+        public string Message { get; internal set; }
     }
 }

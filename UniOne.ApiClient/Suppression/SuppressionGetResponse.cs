@@ -8,12 +8,12 @@ namespace Sender.UniOne.ApiClient.Suppression
         /// The email for which suppression details were requested
         /// </summary>
         [JsonProperty("email")]
-        public string Email { get; set; }
+        public string Email { get; internal set; }
 
         /// <summary>
         /// Array of suppression objects
         /// </summary>
         [JsonProperty("suppression")]
-        public Suppression Suppression { get; set; }
+        public Suppression Suppression { get; internal set; }
     }
 }

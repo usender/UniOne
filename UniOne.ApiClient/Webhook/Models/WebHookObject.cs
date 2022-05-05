@@ -6,9 +6,9 @@ namespace Sender.UniOne.ApiClient.Webhook.Models
     public class WebHookObject : WebhookSet
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int Id { get; internal set; }
 
         [JsonProperty("updated_at")]
-        public DateTime UpdatedAtUtc { get; set; }
+        public DateTime UpdatedAtUtc { get; internal set; }
     }
 }

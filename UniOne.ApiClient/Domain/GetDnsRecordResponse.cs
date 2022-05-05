@@ -8,12 +8,12 @@ namespace Sender.UniOne.ApiClient.Domain
         /// Domain to get DNS records for
         /// </summary>
         [JsonProperty("domain")]
-        public string Domain { get; set; }
+        public string Domain { get; internal set; }
 
         [JsonProperty("verification-record")]
-        public string VerificationRecord { get; set; }
+        public string VerificationRecord { get; internal set; }
 
         [JsonProperty("dkim")]
-        public string Ddkim { get; set; }
+        public string Ddkim { get; internal set; }
     }
 }

@@ -8,6 +8,6 @@ namespace Sender.UniOne.ApiClient.Unsubscribe
         /// Array of object describing unsubscribed emails
         /// </summary>
         [JsonProperty("unsubscribed")]
-        public Unsubscribed[] Unsubscribes { get; set; }
+        public Unsubscribed[] Unsubscribes { get; internal set; }
     }
 }

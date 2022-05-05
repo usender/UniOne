@@ -1,4 +1,6 @@
-﻿namespace Sender.UniOne.ApiClient.Webhook
+﻿using Sender.UniOne.ApiClient.Attributes;
+
+namespace Sender.UniOne.ApiClient.Webhook
 {
     internal abstract class WebhookBaseRequest : BaseRequest
     {
@@ -10,6 +12,7 @@
         /// <summary>
         /// URL that will receive the notification when an event occurs
         /// </summary>
+        [UrlValidation]
         public string Url { get; set; }
     }
 }
