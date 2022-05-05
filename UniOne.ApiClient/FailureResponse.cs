@@ -7,6 +7,17 @@ namespace Sender.UniOne.ApiClient
     /// </summary>
     public class FailureResponse
     {
+        public FailureResponse()
+        {
+
+        }
+
+        internal FailureResponse(int code, string message)
+        {
+            Code = code;
+            Message = message;
+        }
+
         /// <summary>
         /// <see cref="http://docs.unione.io/ru/web-api-ref?csharp#api-errors"/>
         /// </summary>
