@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Sender.UniOne.ApiClient;
+﻿using Sender.UniOne.ApiClient;
 using Sender.UniOne.ApiClient.Common;
 using Sender.UniOne.ApiClient.Email;
 using System.Linq;

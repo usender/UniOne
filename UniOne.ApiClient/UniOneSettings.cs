@@ -27,6 +27,6 @@
         /// Validation is checked according to official documentation
         /// <remarks>Currently, the project is not fully verified and validation may not occur correctly</remarks>
         /// </summary>
-        public bool IsNeedValidateRequestBeforeSending { get; set; }
+        public bool IsNeedValidatingRequestBeforeSending { get; set; }
     }
 }

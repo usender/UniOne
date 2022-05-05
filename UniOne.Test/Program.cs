@@ -15,17 +15,14 @@ namespace Sender.UniOne.Test
             var settings = new UniOneSettings
             {
                 ApiKey = "Your API key here",
-                Host = "https://eu1.unione.io",
-                IsNeedValidateRequestBeforeSending = false
+                Host = "chose by region", // https://eu1.unione.io or https://us1.unione.io
+                IsNeedValidatingRequestBeforeSending = false
             };
 
             _client = new Client(settings);
 
             //system info
             var response = await _client.SystemInfo();
-
-            response.ProjectId
-
             ResponseToConsole(response);
 
             ////send email
