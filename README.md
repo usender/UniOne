@@ -1,4 +1,5 @@
 [![NuGet](https://img.shields.io/nuget/v/Sender.UniOne.ApiClient)](https://www.nuget.org/packages/Sender.UniOne.ApiClient)
+[![License](https://img.shields.io/github/license/usender/unione)](https://img.shields.io/github/license/usender/unione)
 
 UniOne is an open source framework for automated transactional email system. Unione allows you to work with API from any .NET application
 
