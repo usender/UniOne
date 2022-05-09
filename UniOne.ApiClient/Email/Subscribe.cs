@@ -1,6 +1,6 @@
 ﻿namespace Sender.UniOne.ApiClient.Email
 {
-    public  class Subscribe
+    public class Subscribe
     {
         /// <summary>
         /// Sender’s email. (Field alias “email_address_from” is supported, too).

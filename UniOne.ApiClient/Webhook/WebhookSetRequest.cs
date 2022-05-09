@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Sender.UniOne.ApiClient.Apis;
 using Sender.UniOne.ApiClient.Infrastructure.JsonConverters;
@@ -21,13 +22,22 @@ namespace Sender.UniOne.ApiClient.Webhook
 
         internal override ApiAction ApiAction => ApiAction.Webhook.List;
 
+        /// <summary>
+        /// URL that will receive the notification when an event occurs. The URL should be unique for a user or a project. Only ASCII characters are supported for now in URL, please convert to Punycode if you need to use non-ASCII characters
+        /// </summary>
         [JsonProperty("url")]
         public string Url { get; set; }
 
+        /// <summary>
+        /// Webhook status, “active” by default. “disabled” means that webhook has been disabled by the user, “stopped” means that webhook has been stopped by the system after 24h of failed calls (with minimum of 10 distinct events)
+        /// </summary>
         [JsonProperty("status")]
         [JsonConverter(typeof(StringEnumConverter))]
         public WebhookStatus Status { get; set; }
 
+        /// <summary>
+        /// Notification format. “json_post”(default) or “json_post_gzip”
+        /// </summary>
         [JsonProperty("event_format")]
         [JsonConverter(typeof(StringEnumConverter))]
         public WebhookEventFormat EventFormat { get; set; }
@@ -70,13 +80,14 @@ namespace Sender.UniOne.ApiClient.Webhook
         public bool SingleEvent { get; set; }
 
         /// <summary>
-        /// maximum quantity of parallel queries to server. Accepts values from 5 to 100. Default: 10
+        /// Maximum quantity of permitted parallel queries to your server. The more your server can handle - the better. Accepts values from 5 to 100. Default: 10
         /// </summary>
         [JsonProperty("maxParallel")]
+        [Range(5, 100)]
         public int MaxParallel { get; set; }
-        
+
         /// <summary>
-        /// events, created by request (see above)
+        /// Object containing events to notify of
         /// </summary>
         [JsonProperty("events")]
         public HookEvent Events { get; set; }

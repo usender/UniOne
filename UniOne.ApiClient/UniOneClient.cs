@@ -32,7 +32,7 @@ namespace Sender.UniOne.ApiClient
             _settings = settings;
 
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri(settings.Host);
+            _httpClient.BaseAddress = new Uri(settings.Endpoint);
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 

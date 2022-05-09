@@ -15,7 +15,7 @@
         ///     </item>
         /// </list>
         /// </summary>
-        public string Host { get; set; }
+        public string Endpoint { get; set; }
 
         /// <summary>
         /// Authorization key

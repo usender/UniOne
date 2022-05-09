@@ -15,7 +15,7 @@ namespace Sender.UniOne.Test
             var settings = new UniOneSettings
             {
                 ApiKey = "Your API key here",
-                Host = "chose by region", // https://eu1.unione.io or https://us1.unione.io
+                Endpoint = "chose by region", // https://eu1.unione.io or https://us1.unione.io
                 IsNeedValidatingRequestBeforeSending = false
             };
 

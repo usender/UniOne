@@ -7,6 +7,9 @@ using Sender.UniOne.ApiClient.Infrastructure.JsonConverters;
 
 namespace Sender.UniOne.ApiClient.Webhook.Models
 {
+    /// <summary>
+    /// Webhook object
+    /// </summary>
     public class WebhookSet
     {
         public WebhookSet()

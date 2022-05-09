@@ -30,6 +30,6 @@ namespace Sender.UniOne.ApiClient.Email
         /// SMTP pool identifier to send message with. If smtp_pool_id is not set, default one for your account/project will be used. You can pay for one or more dedicated IPs and use this option to choose sending using dedicated IP or common pool.
         /// </summary>
         [JsonProperty("smtp_pool_id")]
-        public  string SmtpPoolId { get; set; }
+        public string SmtpPoolId { get; set; }
     }
 }
