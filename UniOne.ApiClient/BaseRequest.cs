@@ -9,7 +9,10 @@ namespace Sender.UniOne.ApiClient
 {
     internal abstract class BaseRequest
     {
-        internal abstract ApiAction ApiAction { get; }
+        /// <summary>
+        /// API end part of endpoint
+        /// </summary>
+        internal abstract ApiEndpoint ApiEndpoint { get; }
 
         /// <summary>
         /// Key to access the API

@@ -11,6 +11,6 @@ namespace Sender.UniOne.ApiClient.Webhook
 
         }
 
-        internal override ApiAction ApiAction => ApiAction.Webhook.List;
+        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Webhook.List;
     }
 }

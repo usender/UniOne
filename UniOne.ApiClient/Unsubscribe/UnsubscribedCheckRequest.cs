@@ -4,7 +4,7 @@ namespace Sender.UniOne.ApiClient.Unsubscribe
 {
     internal class UnsubscribedCheckRequest : UnsubscribedBaseRequest
     {
-        internal override ApiAction ApiAction => ApiAction.Unsubscribed.Check;
+        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Unsubscribed.Check;
 
         public UnsubscribedCheckRequest(string email)
             : base(email)

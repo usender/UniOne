@@ -32,7 +32,6 @@ namespace Sender.UniOne.ApiClient.Email
         /// </summary>
         [JsonProperty("recipients")]
         [Required]
-
         public ICollection<Recipient> Recipients { get; set; }
 
         /// <summary>

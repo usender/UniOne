@@ -5,7 +5,7 @@ namespace Sender.UniOne.ApiClient.Email
 {
     internal class EmailSubscribeRequest : BaseRequest
     {
-        internal override ApiAction ApiAction => ApiAction.Email.Subscribe;
+        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Email.Subscribe;
 
         internal EmailSubscribeRequest(Subscribe subscribe)
         {

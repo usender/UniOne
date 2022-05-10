@@ -383,7 +383,7 @@ namespace Sender.UniOne.ApiClient
                 request.Validate();
             }
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, request.ApiAction.Uri)
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, request.ApiEndpoint.Uri)
             {
                 Content = new StringContent(request.ToString(), Encoding.UTF8, "application/json")
             };
