@@ -8,7 +8,7 @@
         /// <summary>
         /// 
         /// </summary>
-        private const string PREFIX_ENDPOINT = "/en/transactional/api/v1";
+        private const string PREFIX_ENDPOINT = "transactional/api/v1";
 
         /// <summary>
         /// Uri

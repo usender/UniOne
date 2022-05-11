@@ -23,6 +23,11 @@
         public string ApiKey { get; set; }
 
         /// <summary>
+        /// API language. Default is english
+        /// </summary>
+        public Language DefaultLanguage { get; set; } = Language.English;
+
+        /// <summary>
         /// The property indicates whether the submitted validation request should be checked
         /// Validation is checked according to official documentation
         /// <remarks>Currently, the project is not fully verified and validation may not occur correctly</remarks>
