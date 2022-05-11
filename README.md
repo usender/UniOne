@@ -19,3 +19,48 @@ https://docs.unione.io
 > Install-Package Sender.UniOne.ApiClient
 > 
 or by visiting: https://www.nuget.org/packages/Sender.UniOne.ApiClient/
+
+# How to use
+## Send email in the basic version
+
+```
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Sender.UniOne.ApiClient;
+using Sender.UniOne.ApiClient.Common;
+using Sender.UniOne.ApiClient.Email;
+
+namespace Sender.UniOne.Test
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            var settings = new UniOneSettings
+            {
+                ApiKey = "Your API key here",
+                Endpoint = "Chose by region", // https://eu1.unione.io or https://us1.unione.io
+                IsNeedValidatingRequestBeforeSending = false
+            };
+
+            var uniOneClient = new UniOneClient(settings);
+
+            var emailMessage = new EmailMessage
+            {
+                Subject = "uni one client",
+                FromName = "user company",
+                FromEmail = "your from email",
+                Recipients = new List<Recipient> { new Recipient("remote@email.com") },
+                Body = new MessageBody("Example message for ...")
+            };
+
+            var response = await uniOneClient.EmailSendAsync(emailMessage);
+
+            Console.WriteLine(response.IsSuccess ? response.JobId : response.Failure.Message);
+
+            Console.ReadKey();
+        }
+    }
+}
+```
