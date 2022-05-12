@@ -7,6 +7,8 @@ namespace Sender.UniOne.ApiClient
     {
         internal PageRequest(Page page)
         {
+            page = page ?? new Page();
+
             Limit = page.Limit;
             Offset = page.Offset;
         }

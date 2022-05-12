@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace Sender.UniOne.ApiClient.System
 {
@@ -20,7 +21,7 @@ namespace Sender.UniOne.ApiClient.System
         /// Unique project identifier, ASCII string up to 36 characters long. Present only if the API key used for request is the project API key.
         /// </summary>
         [JsonProperty("project_id")]
-        public string ProjectId { get; internal set; }
+        public Guid? ProjectId { get; internal set; }
 
         /// <summary>
         /// Project name, unique for user account. Present only if the API key used for request is the project API key

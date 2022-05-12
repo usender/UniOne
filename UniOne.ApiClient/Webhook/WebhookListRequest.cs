@@ -6,7 +6,7 @@ namespace Sender.UniOne.ApiClient.Webhook
     internal class WebhookListRequest : PageRequest
     {
         public WebhookListRequest(Page page)
-            :base(page)
+            : base(page)
         {
 
         }

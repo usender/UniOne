@@ -43,8 +43,8 @@ namespace Sender.UniOne.ApiClient.Common
         /// 1 - the click tracking is on
         /// default: 1
         /// </summary>
-        [JsonConverter(typeof(IntToBoolConverter))]
         [JsonProperty("track_links")]
+        [JsonConverter(typeof(IntToBoolConverter))]
         public bool TrackLinks => false;
 
         /// <summary>
@@ -52,8 +52,8 @@ namespace Sender.UniOne.ApiClient.Common
         /// 1 - the email read tracking is on
         /// default: 1
         /// </summary>
-        [JsonConverter(typeof(IntToBoolConverter))]
         [JsonProperty("track_read")]
+        [JsonConverter(typeof(IntToBoolConverter))]
         public bool TrackRead => false;
 
         /// <summary>

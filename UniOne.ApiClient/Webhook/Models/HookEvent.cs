@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Sender.UniOne.ApiClient.Email;
 
 namespace Sender.UniOne.ApiClient.Webhook.Models
@@ -9,7 +10,7 @@ namespace Sender.UniOne.ApiClient.Webhook.Models
         /// Email statuses to notify. Default: include all <see cref="MessageStatus"/>
         /// <see cref="http://eu1.unione.io/ru/docs/page/webhook_set_v1#status"/>
         /// </summary>
-        [JsonProperty("email_status")]
+        [JsonProperty("email_status", ItemConverterType = typeof(StringEnumConverter))]
         internal MessageStatus[] EmailStatuses { get; set; }
 
         /// <summary>
