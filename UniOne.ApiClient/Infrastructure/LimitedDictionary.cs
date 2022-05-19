@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Sender.UniOne.ApiClient.Infrastructure
 {
-    public class LimitedDictionary<T> : Dictionary<string, string> 
+    public class LimitedDictionary<T> : Dictionary<string, string>, IDictionarySource
     {
         private readonly int _maxCount;
 
@@ -11,11 +11,6 @@ namespace Sender.UniOne.ApiClient.Infrastructure
             : base(maxCount)
         {
             _maxCount = maxCount;
-        }
-
-        public static T Instance()
-        {
-            return (T)Activator.CreateInstance(typeof(T), true);
         }
 
         public new virtual void Add(string key, string value)
@@ -30,11 +25,32 @@ namespace Sender.UniOne.ApiClient.Infrastructure
             base.Add(key, value);
         }
 
+        public void AddRange(Dictionary<string, string> properties)
+        {
+            foreach (var property in properties)
+            {
+                Add(property.Key, property.Value);
+            }
+        }
+
         public void RemoveIfExist(string key)
         {
             if (ContainsKey(key))
             {
                 Remove(key);
+            }
+        }
+
+        public virtual bool TryAdd(string key, string value)
+        {
+            try
+            {
+                Add(key, value);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

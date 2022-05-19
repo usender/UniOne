@@ -11,13 +11,13 @@ namespace Sender.UniOne.ApiClient.Webhook.Models
         /// <see cref="http://eu1.unione.io/ru/docs/page/webhook_set_v1#status"/>
         /// </summary>
         [JsonProperty("email_status", ItemConverterType = typeof(StringEnumConverter))]
-        internal MessageStatus[] EmailStatuses { get; set; }
+        public MessageStatus[] EmailStatuses { get; set; }
 
         /// <summary>
         /// Your name may appear around GitHub where you contribute or are mentioned. You can remove it at any time. Default: [*]
         /// <see cref="http://eu1.unione.io/ru/docs/page/Spam_Blocking"/>
         /// </summary>
         [JsonProperty("spam_block")]
-        internal string[] SpamBlock { get; set; }
+        public string[] SpamBlock { get; set; }
     }
 }

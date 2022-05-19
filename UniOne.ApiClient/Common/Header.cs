@@ -9,7 +9,7 @@ namespace Sender.UniOne.ApiClient.Common
         private readonly string[] _allowHeaderNames = new[]
             {"List-Unsubscribe", "List-Subscribe", "List-Help", "List-Owner", "List-Archive"};
 
-        protected Header() 
+        public Header() 
             : base(50)
         {
         }

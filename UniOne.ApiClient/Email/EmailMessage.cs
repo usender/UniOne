@@ -46,7 +46,7 @@ namespace Sender.UniOne.ApiClient.Email
         /// </summary>
         [JsonProperty("recipients")]
         [Required]
-        public ICollection<Recipient> Recipients { get; set; }
+        public IList<Recipient> Recipients { get; set; }
 
         /// <summary>
         /// Optional object. Additional message options.
