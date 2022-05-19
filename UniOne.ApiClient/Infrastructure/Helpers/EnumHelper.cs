@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
 
 namespace Sender.UniOne.ApiClient.Infrastructure.Helpers
 {
@@ -13,6 +16,13 @@ namespace Sender.UniOne.ApiClient.Infrastructure.Helpers
             {
                 yield return (T)item;
             }
+        }
+
+        internal static string GetEnumMemberValue<T>(T value) where T : Enum
+        {
+            var member = typeof(T).GetTypeInfo().DeclaredMembers.Single(x => x.Name == value.ToString());
+            var attr = member.GetCustomAttribute<EnumMemberAttribute>();
+            return attr?.Value;
         }
     }
 }

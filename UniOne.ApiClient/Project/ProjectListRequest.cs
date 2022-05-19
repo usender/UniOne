@@ -8,6 +8,6 @@ namespace Sender.UniOne.ApiClient.Project
             : base(project)
         { }
 
-        internal override ApiAction ApiAction => ApiAction.Project.List;
+        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Project.List;
     }
 }

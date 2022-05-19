@@ -9,6 +9,7 @@ using Sender.UniOne.ApiClient.Domain;
 using Sender.UniOne.ApiClient.Email;
 using Sender.UniOne.ApiClient.Infrastructure.Exceptions;
 using Sender.UniOne.ApiClient.Infrastructure.Extensions;
+using Sender.UniOne.ApiClient.Infrastructure.Helpers;
 using Sender.UniOne.ApiClient.Project;
 using Sender.UniOne.ApiClient.Suppression;
 using Sender.UniOne.ApiClient.System;
@@ -32,7 +33,8 @@ namespace Sender.UniOne.ApiClient
             _settings = settings;
 
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri(settings.Endpoint);
+            var language = EnumHelper.GetEnumMemberValue(settings.DefaultLanguage);
+            _httpClient.BaseAddress = new Uri(new Uri(settings.Endpoint), language + "/");
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
@@ -383,8 +385,10 @@ namespace Sender.UniOne.ApiClient
                 request.Validate();
             }
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, request.ApiAction.Uri)
+            var httpRequest = new HttpRequestMessage
             {
+                Method = HttpMethod.Post,
+                RequestUri = new Uri(request.ApiEndpoint.Uri, UriKind.Relative),
                 Content = new StringContent(request.ToString(), Encoding.UTF8, "application/json")
             };
 
@@ -399,10 +403,13 @@ namespace Sender.UniOne.ApiClient
             if (response.StatusCode >= HttpStatusCode.BadRequest &&
                 response.StatusCode <= HttpStatusCode.InternalServerError)
             {
-                return new T
+                var failure = content.FromJson<FailureResponse>();
+                if (failure.Code == 0)
                 {
-                    Failure = content.FromJson<FailureResponse>()
-                };
+                    failure.Code = (int)response.StatusCode;
+                }
+
+                return new T { Failure = failure };
             }
 
             var message = response.StatusCode > HttpStatusCode.InternalServerError

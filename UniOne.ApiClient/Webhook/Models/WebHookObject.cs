@@ -15,6 +15,6 @@ namespace Sender.UniOne.ApiClient.Webhook.Models
         /// Webhook properties last update date and time in UTC timezone
         /// </summary>
         [JsonProperty("updated_at")]
-        public DateTime UpdatedAtUtc { get; internal set; }
+        public DateTime? UpdatedAtUtc { get; internal set; }
     }
 }

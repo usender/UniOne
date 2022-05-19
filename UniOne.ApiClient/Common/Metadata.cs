@@ -7,7 +7,7 @@ namespace Sender.UniOne.ApiClient.Common
     {
         private const int MAX_ENTRY_COUNT = 10;
 
-        internal Metadata()
+        public Metadata()
             : base(MAX_ENTRY_COUNT)
         {
         }

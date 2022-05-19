@@ -5,7 +5,7 @@ namespace Sender.UniOne.ApiClient.Template
 {
     internal class TemplateDeleteRequest : BaseRequest
     {
-        internal override ApiAction ApiAction => ApiAction.Template.Delete;
+        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Template.Delete;
 
         public TemplateDeleteRequest(string id)
         {

@@ -43,18 +43,18 @@ namespace Sender.UniOne.ApiClient.Common
         /// 1 - the click tracking is on
         /// default: 1
         /// </summary>
-        [JsonConverter(typeof(IntToBoolConverter))]
         [JsonProperty("track_links")]
-        public bool TrackLinks => false;
+        [JsonConverter(typeof(IntToBoolConverter))]
+        public bool TrackLinks { get; set; }
 
         /// <summary>
         /// 0 - the email read tracking is off
         /// 1 - the email read tracking is on
         /// default: 1
         /// </summary>
-        [JsonConverter(typeof(IntToBoolConverter))]
         [JsonProperty("track_read")]
-        public bool TrackRead => false;
+        [JsonConverter(typeof(IntToBoolConverter))]
+        public bool TrackRead { get; set; }
 
         /// <summary>
         ///  Optional string. Email subject
@@ -98,6 +98,7 @@ namespace Sender.UniOne.ApiClient.Common
         /// <summary>
         /// Contains email headers, maximum 50. Only headers with “X-” name prefix are accepted, all other are ignored, for example X-UNIONE-Global-Language, X-UNIONE-Template-Engine. If our support have approved omitting standard unsubscription block for you, you can also pass List-Unsubscribe, List-Subscribe, List-Help, List-Owner and List-Archive headers
         /// </summary>
+        [JsonProperty("headers")]
         public Header Headers { get; set; }
     }
 }

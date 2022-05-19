@@ -8,7 +8,7 @@ namespace Sender.UniOne.ApiClient.Email
     /// <see cref="http://eu1.unione.io/ru/docs/page/webhook_set_v1#status"/>
     /// </summary>
     [Flags]
-    internal enum MessageStatus
+    public enum MessageStatus
     {
         /// <summary>
         /// The message is sent, but not delivered yet

@@ -5,7 +5,7 @@ namespace Sender.UniOne.ApiClient.Suppression
 {
     internal class SuppressionDeleteRequest : BaseRequest
     {
-        internal override ApiAction ApiAction => ApiAction.Suppression.Delete;
+        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Suppression.Delete;
 
         /// <summary>
         /// An email to delete from suppression list

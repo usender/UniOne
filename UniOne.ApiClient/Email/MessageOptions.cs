@@ -12,7 +12,7 @@ namespace Sender.UniOne.ApiClient.Email
         /// Date and time in “YYYY-MM-DD hh:mm:ss” format in the UTC timezone. Allows schedule sending up to 24 hours in advance.
         /// </summary>
         [JsonProperty("send_at")]
-        public DateTime SendAt { get; set; }
+        public DateTime? SendAt { get; set; }
 
         /// <summary>
         /// Custom unsubscribe link. Read more <see cref="https://docs.unione.io/unsubscribe-link"/>.
