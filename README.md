@@ -64,3 +64,47 @@ namespace Sender.UniOne.Test
     }
 }
 ```
+# Use email substitution [Substitution](https://github.com/usender/unione/blob/master/UniOne.ApiClient/Email/Substitution.cs)
+## Method 1 (use inheritance class)
+```
+public class Example
+{
+    public void Do()
+    {
+        var emailMessage = new EmailMessage();
+        emailMessage.Recipients.Add(new Recipient("some@email.com")
+        {
+            Substitutions = new LocalSubstitution
+            {
+                ToName = "some name",
+                CustomerId = "123"
+            }
+        });
+    }
+
+    public class LocalSubstitution : Substitution
+    {
+        public string CustomerId { get; set; }
+    }
+}
+```
+
+## Method 2  (use as dictionary)
+```
+public class Example
+{
+    public void Do()
+    {
+        var emailMessage = new EmailMessage();
+
+        var substitutions = new Substitution();
+        substitutions.ToName = "some name";
+        substitutions.Add("CustomerId", "123");
+
+        emailMessage.Recipients.Add(new Recipient("some@email.com")
+        {
+            Substitutions = substitutions
+        });
+    }
+}
+```
