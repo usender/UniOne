@@ -3,9 +3,9 @@
 
 UniOne is an open source framework for automated transactional email system. Unione allows you to work with API from any .NET application
 
-## UniOne <img src="https://docs.unione.io/assets/slate/img/logo-unione.svg" width="128"/>
+## <img src="https://docs.unione.io/assets/slate/img/logo-unione.svg" width="128"/>
 ## Official page
-https://docs.unione.io
+[https://docs.unione.io](https://unione.io)
 
 ## Documentation
 [Official UniOne Documentation](https://docs.unione.io/en/web-api-ref?http#web-api)
@@ -64,7 +64,7 @@ namespace Sender.UniOne.Test
     }
 }
 ```
-# Use email substitution [Substitution](https://github.com/usender/unione/blob/master/UniOne.ApiClient/Email/Substitution.cs)
+# Use email [substitution](https://github.com/usender/unione/blob/master/UniOne.ApiClient/Email/Substitution.cs)
 ## Method 1 (use inheritance class)
 ```
 public class Example
