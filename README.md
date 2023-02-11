@@ -4,7 +4,7 @@
 UniOne is an open source framework for automated transactional email system. Unione allows you to work with API from any .NET application
 Updated to version 1.41 [changelog](https://docs.unione.io/en/api-changelog)
 
-## <img src="https://docs.unione.io/assets/slate/img/logo-unione.svg" width="128"/>
+## <img src="https://eu1.unione.io/public/build/images/user-icon-unione.e5ec6334.png" width="64"/>
 ## Official page
 [https://docs.unione.io](https://unione.io)
 
