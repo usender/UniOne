@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Sender.UniOne.ApiClient.Email;
+using Sender.UniOne.ApiClient.Common;
 
 namespace Sender.UniOne.ApiClient.Webhook.Models
 {

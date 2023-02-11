@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-namespace Sender.UniOne.ApiClient.Email
+namespace Sender.UniOne.ApiClient.Common
 {
     /// <summary>
     /// <see cref="http://eu1.unione.io/ru/docs/page/webhook_set_v1#status"/>

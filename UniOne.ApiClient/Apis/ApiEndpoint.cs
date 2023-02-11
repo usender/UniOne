@@ -61,6 +61,16 @@
         internal static SystemEndpoint System => new SystemEndpoint();
 
         /// <summary>
+        /// Event-dump endpoints
+        /// </summary>
+        internal static EventDumpEndpoint EventDump => new EventDumpEndpoint();
+
+        /// <summary>
+        /// Tag endpoints
+        /// </summary>
+        internal static TagEndpoint Tag => new TagEndpoint();
+
+        /// <summary>
         /// Merge path
         /// </summary>
         /// <param name="url">Postfix of url</param>
