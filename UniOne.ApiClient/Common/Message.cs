@@ -11,6 +11,7 @@ namespace Sender.UniOne.ApiClient.Common
     {
         /// <summary>
         /// Undocumented required parameter
+        /// The template engine for handling the substitutions(merge tags), “simple”, “velocity” or “none”. Default value is “simple”. “none” is only available for emails with unsubscription link turned off.
         /// </summary>
         [JsonProperty("template_engine")]
         [JsonConverter(typeof(StringEnumConverter))]

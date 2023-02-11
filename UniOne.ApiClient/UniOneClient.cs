@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using Sender.UniOne.ApiClient.Common;
 using Sender.UniOne.ApiClient.Domain;
 using Sender.UniOne.ApiClient.Email;
+using Sender.UniOne.ApiClient.EventDump;
 using Sender.UniOne.ApiClient.Infrastructure.Exceptions;
 using Sender.UniOne.ApiClient.Infrastructure.Extensions;
 using Sender.UniOne.ApiClient.Infrastructure.Helpers;
 using Sender.UniOne.ApiClient.Project;
 using Sender.UniOne.ApiClient.Suppression;
 using Sender.UniOne.ApiClient.System;
+using Sender.UniOne.ApiClient.Tag;
 using Sender.UniOne.ApiClient.Template;
 using Sender.UniOne.ApiClient.Unsubscribe;
 using Sender.UniOne.ApiClient.Webhook;
@@ -31,10 +33,10 @@ namespace Sender.UniOne.ApiClient
         public UniOneClient(UniOneSettings settings)
         {
             _settings = settings;
-
             _httpClient = new HttpClient();
             var language = EnumHelper.GetEnumMemberValue(settings.DefaultLanguage);
             _httpClient.BaseAddress = new Uri(new Uri(settings.Endpoint), language + "/");
+            //_httpClient.DefaultRequestHeaders.Add("X-API-KEY", settings.ApiKey);
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
@@ -236,7 +238,7 @@ namespace Sender.UniOne.ApiClient
         /// <returns></returns>
         public Task<SuppressionDeleteResponse> SuppressionDeleteAsync(string email)
         {
-            var request = new SuppressionDeleteRequest()
+            var request = new SuppressionDeleteRequest
             {
                 Email = email
             };
@@ -364,6 +366,93 @@ namespace Sender.UniOne.ApiClient
         {
             var request = new SystemInfoRequest();
             return GetResponseAsync<SystemInfoResponse>(request);
+        }
+
+        #endregion
+
+        #region Event dump
+
+        /// <summary>
+        /// This asynchronous method initiates the preparation of data dump in CSV format. The number of dump files created or stored is limited to 10; to order more files, you have to delete one of the previous ones or wait until they will be deleted automatically. A newly created dump file is kept for 8 hours
+        /// </summary>
+        ///  <param name="eventDump">Dump detail</param>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
+        public Task<EventDumpCreateResponse> EventDumpCreateAsync(EventDumpCreate eventDump)
+        {
+            var request = new EventDumpCreateRequest
+            {
+                Limit = eventDump.Limit,
+                AllProjects = eventDump.AllProjects,
+                Delimiter = eventDump.Delimiter,
+                EndTime = eventDump.EndTime,
+                Format = eventDump.Format,
+                StartTime = eventDump.StartTime,
+                Filter = eventDump.Filter ?? new EventDumpFilter()
+            };
+            return GetResponseAsync<EventDumpCreateResponse>(request);
+        }
+
+        /// <summary>
+        /// Returns dump properties for a given identifier
+        /// </summary>
+        /// <param name="dumpId">Dump identifier</param>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
+        public Task<EventDumpGetResponse> EventDumpGetAsync(string dumpId)
+        {
+            var request = new EventDumpGetRequest(dumpId);
+            return GetResponseAsync<EventDumpGetResponse>(request);
+        }
+
+        /// <summary>
+        ///This method does not require any parameters; returns the full list of existing dumps.
+        /// </summary>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
+        public Task<EventDumpListResponse> EventDumpListAsync()
+        {
+            var request = new EventDumpListRequest();
+            return GetResponseAsync<EventDumpListResponse>(request);
+        }
+
+        /// <summary>
+        /// Removes dump from queue or storage.
+        /// </summary>
+        /// <param name="dumpId">Dump identifier</param>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
+        public Task<EventDumpDeleteResponse> EventDumpDeleteAsync(string dumpId)
+        {
+            var request = new EventDumpDeleteRequest(dumpId);
+            return GetResponseAsync<EventDumpDeleteResponse>(request);
+        }
+
+        #endregion
+
+        #region Tag
+
+        /// <summary>
+        /// This method returns the full list of user-defined tags
+        /// </summary>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
+        public Task<TagListResponse> TagListAsync()
+        {
+            var request = new TagListRequest();
+            return GetResponseAsync<TagListResponse>(request);
+        }
+
+        /// <summary>
+        /// Removes tag
+        /// </summary>
+        /// <param name="tagId">Tag identifier</param>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> is true</exception>
+        /// <returns></returns>
+        public Task<TagDeleteResponse> TagDeleteAsync(int tagId)
+        {
+            var request = new TagDeleteRequest(tagId);
+            return GetResponseAsync<TagDeleteResponse>(request);
         }
 
         #endregion

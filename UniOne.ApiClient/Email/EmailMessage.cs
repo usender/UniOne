@@ -15,6 +15,7 @@ namespace Sender.UniOne.ApiClient.Email
         public EmailMessage()
         {
             Body = new MessageBody();
+            Tags = new List<string>();
             Recipients = new List<Recipient>();
             Attachments = new List<Attachment>();
             InlineAttachments = new List<Attachment>();
@@ -26,6 +27,12 @@ namespace Sender.UniOne.ApiClient.Email
         /// </summary>
         [JsonProperty("template_id")]
         public Guid? TemplateId { get; set; }
+
+        /// <summary>
+        /// An array of strings. The maximum string length is 50 characters. You can include up to 4 strings which must be unique. No more than 10 000 tags are allowed per project; if you try to add more, email/send will return an error. You may use tags to categorize emails by your own criteria, and they will be passed along by event-dump methods
+        /// </summary>
+        [JsonProperty("tags")]
+        public IList<string> Tags { get; set; }
 
         /// <summary>
         /// Whether to skip or not appending default unsubscribe footer. 1=skip, 0=append, default is 0. You should ask support to approve

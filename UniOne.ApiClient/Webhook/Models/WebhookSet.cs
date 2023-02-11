@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Sender.UniOne.ApiClient.Email;
+using Sender.UniOne.ApiClient.Common;
 using Sender.UniOne.ApiClient.Infrastructure.Helpers;
 using Sender.UniOne.ApiClient.Infrastructure.JsonConverters;
 
