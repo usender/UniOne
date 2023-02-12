@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Sender.UniOne.ApiClient.EventDump
 {
-    public enum EventDumpFormatEnum
+    public enum EventDumpFormat
     {
         /// <summary>
         /// File format, either “csv”

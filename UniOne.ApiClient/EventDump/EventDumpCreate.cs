@@ -35,7 +35,7 @@ namespace Sender.UniOne.ApiClient.EventDump
         /// <summary>
         /// File format, either “csv” (default) or “csv_gzip”.
         /// </summary>
-        public EventDumpFormatEnum? Format { get; set; }
+        public EventDumpFormat? Format { get; set; }
 
         /// <summary>
         /// An object with the properties of the event dump filter.
