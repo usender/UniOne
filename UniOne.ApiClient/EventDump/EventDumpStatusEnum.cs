@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Sender.UniOne.ApiClient.EventDump
 {
-    public enum EventDumpStatusEnum
+    public enum EventDumpStatus
     {
         /// <summary>
         /// The task is in the queue, processing is not started yet

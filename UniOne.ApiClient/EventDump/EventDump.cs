@@ -10,19 +10,19 @@ namespace Sender.UniOne.ApiClient.EventDump
         /// Dump ID received by the method event-dump/create.
         /// </summary>
         [JsonProperty("dump_id")]
-        internal string DumpId { get; set; }
+        public string DumpId { get; set; }
 
         /// <summary>
         /// Dump ID received by the method event-dump/create.
         /// </summary>
         [JsonProperty("event_dumps")]
-        internal string EventDumps { get; set; }
+        public string EventDumps { get; set; }
 
         /// <summary>
         /// Task status, possible values are:
         /// </summary>
         [JsonProperty("dump_status", ItemConverterType = typeof(StringEnumConverter))]
-        internal EventDumpStatusEnum DumpStatus { get; set; }
+        public EventDumpStatus DumpStatus { get; set; }
 
         /// <summary>
         /// An array of objects, each representing a file, ready for download. You may start downloading everything listed in “files” even if “dump_status” is still “in_process”. If there are no events, according to the specified parameters, an empty array will be returned.
