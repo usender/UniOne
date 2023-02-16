@@ -517,7 +517,7 @@ namespace Sender.UniOne.ApiClient
             var httpRequest = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri(request.ApiEndpoint.Uri, UriKind.Relative),
+                RequestUri = new Uri(request.Endpoint.Uri, UriKind.Relative),
                 Content = new StringContent(request.ToString(), Encoding.UTF8, "application/json")
             };
 
