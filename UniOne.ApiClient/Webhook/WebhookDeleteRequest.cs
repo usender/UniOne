@@ -10,6 +10,6 @@ namespace Sender.UniOne.ApiClient.Webhook
            
         }
 
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Webhook.Delete;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Webhook.Delete;
     }
 }

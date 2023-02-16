@@ -5,7 +5,7 @@ namespace Sender.UniOne.ApiClient.Template
 {
     internal class TemplateListRequest : PageRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Template.List;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Template.List;
 
         public TemplateListRequest(Page page) 
             : base(page)

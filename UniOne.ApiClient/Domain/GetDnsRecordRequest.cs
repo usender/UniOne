@@ -11,7 +11,7 @@ namespace Sender.UniOne.ApiClient.Domain
             Domain = domain;
         }
 
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Domain.GetDnsRecords;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Domain.GetDnsRecords;
 
         /// <summary>
         /// Domain to get DNS records for

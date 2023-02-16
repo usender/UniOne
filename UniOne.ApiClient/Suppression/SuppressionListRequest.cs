@@ -7,7 +7,7 @@ namespace Sender.UniOne.ApiClient.Suppression
 {
     internal class SuppressionListRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Suppression.List;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Suppression.List;
 
         /// <summary>
         /// Cause of email being suppressed. One of: unsubscribed, temporary_unavailable, permanent_unavailable, complained 

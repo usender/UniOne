@@ -7,7 +7,7 @@ namespace Sender.UniOne.ApiClient.EventDump
 {
     internal class EventDumpCreateRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.EventDump.Create;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.EventDump.Create;
 
         internal EventDumpCreateRequest()
         {

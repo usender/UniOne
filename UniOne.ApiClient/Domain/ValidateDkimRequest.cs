@@ -11,7 +11,7 @@ namespace Sender.UniOne.ApiClient.Domain
             Domain = domain;
         }
 
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Domain.ValidateDkim;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Domain.ValidateDkim;
 
         /// <summary>
         /// Domain to validate DKIM record for

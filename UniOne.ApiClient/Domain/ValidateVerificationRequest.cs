@@ -11,7 +11,7 @@ namespace Sender.UniOne.ApiClient.Domain
             Domain = domain;
         }
 
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Domain.ValidateVerificationRecord;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Domain.ValidateVerificationRecord;
 
         /// <summary>
         /// Domain to validate verification record for

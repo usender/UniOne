@@ -19,6 +19,6 @@ namespace Sender.UniOne.ApiClient.Suppression
         [JsonProperty("all_projects")]
         public bool AllProjects { get; set; }
 
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Suppression.Get;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Suppression.Get;
     }
 }

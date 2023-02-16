@@ -5,7 +5,7 @@ namespace Sender.UniOne.ApiClient.EventDump
 {
     internal class EventDumpDeleteRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.EventDump.Delete;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.EventDump.Delete;
 
         internal EventDumpDeleteRequest(string dumpId)
         {

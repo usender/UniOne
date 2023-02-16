@@ -8,7 +8,7 @@ namespace Sender.UniOne.ApiClient.Suppression
 {
     internal class SuppressionSetRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Suppression.Set;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Suppression.Set;
 
         /// <summary>
         /// Email to add in suppression list

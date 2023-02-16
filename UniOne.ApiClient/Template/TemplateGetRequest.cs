@@ -6,7 +6,7 @@ namespace Sender.UniOne.ApiClient.Template
 {
     internal class TemplateGetRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Template.Get;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Template.Get;
 
         public TemplateGetRequest(string id)
         {

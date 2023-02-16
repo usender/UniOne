@@ -7,7 +7,7 @@ namespace Sender.UniOne.ApiClient.Unsubscribe
 {
     internal class UnsubscribedListRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Unsubscribed.List;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Unsubscribed.List;
 
         internal UnsubscribedListRequest(DateTime dateFrom)
         {

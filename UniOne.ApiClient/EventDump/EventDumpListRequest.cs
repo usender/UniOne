@@ -4,6 +4,6 @@ namespace Sender.UniOne.ApiClient.EventDump
 {
     internal class EventDumpListRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.EventDump.List;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.EventDump.List;
     }
 }

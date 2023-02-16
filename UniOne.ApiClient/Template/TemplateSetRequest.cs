@@ -6,7 +6,7 @@ namespace Sender.UniOne.ApiClient.Template
 {
     internal class TemplateSetRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Template.Set;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Template.Set;
 
         public TemplateSetRequest(TemplateMessage template)
         {

@@ -15,7 +15,7 @@ namespace Sender.UniOne.ApiClient.Email
             Message = message;
         }
 
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Email.Send;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Email.Send;
 
         /// <summary>
         /// Object, contains the parameters of the message

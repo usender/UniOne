@@ -6,7 +6,7 @@ namespace Sender.UniOne.ApiClient.Tag
 {
     internal class TagDeleteRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Tag.Delete;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Tag.Delete;
 
         internal TagDeleteRequest(int tagId)
         {

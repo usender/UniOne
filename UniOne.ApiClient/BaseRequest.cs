@@ -12,7 +12,7 @@ namespace Sender.UniOne.ApiClient
         /// <summary>
         /// API end part of endpoint
         /// </summary>
-        internal abstract ApiEndpoint ApiEndpoint { get; }
+        internal abstract ApiEndpoint Endpoint { get; }
 
         /// <summary>
         /// Key to access the API
