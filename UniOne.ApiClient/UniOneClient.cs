@@ -415,7 +415,7 @@ namespace Sender.UniOne.ApiClient
         /// <summary>
         /// This asynchronous method initiates the preparation of data dump in CSV format. The number of dump files created or stored is limited to 10; to order more files, you have to delete one of the previous ones or wait until they will be deleted automatically. A newly created dump file is kept for 8 hours
         /// </summary>
-        ///  <param name="eventDump">Dump detail</param>
+        ///  <param name="eventDump">Dump object</param>
         /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> is true</exception>
         /// <returns></returns>
         public Task<EventDumpCreateResponse> EventDumpCreateAsync(EventDumpCreate eventDump)
