@@ -6,7 +6,7 @@
     public class ApiEndpoint
     {
         /// <summary>
-        /// 
+        /// Endpoint prefix
         /// </summary>
         private const string PREFIX_ENDPOINT = "transactional/api/v1";
 
