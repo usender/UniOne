@@ -30,7 +30,7 @@ namespace Sender.UniOne.ApiClient
 
         protected internal virtual void Validate()
         {
-            if(string.IsNullOrWhiteSpace(ApiKey))
+            if (string.IsNullOrWhiteSpace(ApiKey))
                 throw new UniOneClientValidationException("Invalid api key");
 
             var results = new List<ValidationResult>();

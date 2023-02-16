@@ -246,6 +246,44 @@ namespace Sender.UniOne.ApiClient
             return GetResponseAsync<SuppressionDeleteResponse>(request);
         }
 
+        /// <summary>
+        /// Adds an email address to the suppression list. You can always remove this address from the suppression list later using the suppression/delete method
+        /// </summary>
+        /// <param name="email">Required. Email to add in suppression list.</param>
+        /// <param name="cause">Required. Cause of email being suppressed</param>
+        /// <param name="createDate">When suppression was created, in UTC timezone</param>
+        /// <returns></returns>
+        public Task<SuppressionSetResponse> SuppressionSetAsync(string email, SuppressionCause cause, DateTime? createDate)
+        {
+            var request = new SuppressionSetRequest
+            {
+                Email = email,
+                Cause = cause,
+                Created = createDate
+            };
+
+            return GetResponseAsync<SuppressionSetResponse>(request);
+        }
+
+        /// <summary>
+        /// Returns a suppression list since provided date.
+        /// </summary>
+        /// <param name="filter">Filter object</param>
+        /// <returns></returns>
+        public Task<SuppressionListResponse> SuppressionListAsync(SuppressionList filter)
+        {
+            var request = new SuppressionListRequest
+            {
+                StartTime = filter.StartTime,
+                Limit = filter.Limit,
+                Cause = filter.Cause,
+                Cursor = filter.Cursor,
+                Source = filter.Source
+            };
+
+            return GetResponseAsync<SuppressionListResponse>(request);
+        }
+
         #endregion
 
         #region Domain

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Apis;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sender.UniOne.ApiClient.Template
 {
@@ -12,6 +13,7 @@ namespace Sender.UniOne.ApiClient.Template
             Template = template;
         }
 
+        [Required]
         [JsonProperty("template")]
         public TemplateMessage Template { get; set; }
     }

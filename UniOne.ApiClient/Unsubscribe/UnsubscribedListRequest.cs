@@ -19,6 +19,6 @@ namespace Sender.UniOne.ApiClient.Unsubscribe
         /// </summary>
         [JsonProperty("date_from")]
         [JsonConverter(typeof(DateOnlyConverter))]
-        public DateTime DateFromUtc { get; set; }
+        public DateTime? DateFromUtc { get; set; }
     }
 }

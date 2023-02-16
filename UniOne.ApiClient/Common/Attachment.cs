@@ -47,6 +47,7 @@ namespace Sender.UniOne.ApiClient.Common
         /// File in base64, for using in HTML should be set as "<img src="cid:IMAGECID">"
         /// Maximum file size 7MB (9786710 bytes in base64).
         /// </summary>
+        [Required]
         [JsonProperty("content")]
         [MaxLength(9786710)]
         public string Content { get; set; }
