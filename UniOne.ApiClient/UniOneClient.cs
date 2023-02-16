@@ -252,6 +252,7 @@ namespace Sender.UniOne.ApiClient
         /// <param name="email">Required. Email to add in suppression list.</param>
         /// <param name="cause">Required. Cause of email being suppressed</param>
         /// <param name="createDate">When suppression was created, in UTC timezone</param>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> is true</exception>
         /// <returns></returns>
         public Task<SuppressionSetResponse> SuppressionSetAsync(string email, SuppressionCause cause, DateTime? createDate)
         {
@@ -269,6 +270,7 @@ namespace Sender.UniOne.ApiClient
         /// Returns a suppression list since provided date.
         /// </summary>
         /// <param name="filter">Filter object</param>
+        /// <exception cref="UniOneClientValidationException">Occurs when <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> is true</exception>
         /// <returns></returns>
         public Task<SuppressionListResponse> SuppressionListAsync(SuppressionList filter)
         {
