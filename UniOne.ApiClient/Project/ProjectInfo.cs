@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace Sender.UniOne.ApiClient.Project
 {
@@ -10,6 +11,7 @@ namespace Sender.UniOne.ApiClient.Project
         /// <summary>
         /// Project name, unique for user account.
         /// </summary>
+        [Required]
         [JsonProperty("name")]
         public string Name { get; set; }
 

@@ -10,5 +10,9 @@
         internal ApiEndpoint Get => Path("get.json");
 
         internal ApiEndpoint Delete => Path("delete.json");
+
+        internal ApiEndpoint Set => Path("set.json");
+
+        internal ApiEndpoint List => Path("list.json");
     }
 }

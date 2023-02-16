@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Apis;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sender.UniOne.ApiClient.Domain
 {
@@ -15,6 +16,7 @@ namespace Sender.UniOne.ApiClient.Domain
         /// <summary>
         /// Domain to validate verification record for
         /// </summary>
+        [Required]
         [JsonProperty("domain")]
         public string Domain { get; set; }
     }

@@ -9,6 +9,6 @@ namespace Sender.UniOne.ApiClient.Tag
         /// An list of objects containing data for user-defined tags
         /// </summary>
         [JsonProperty("tags")]
-        public List<TagItem> Tags { get; set; }
+        public List<TagItem> Tags { get; internal set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Sender.UniOne.ApiClient.Suppression
 {
@@ -14,8 +15,8 @@ namespace Sender.UniOne.ApiClient.Suppression
         /// <summary>
         /// Cause of email being suppressed. One of
         /// </summary>
-        [JsonProperty("cause")]
-        public string Cause { get; set; }
+        [JsonProperty("cause", ItemConverterType = typeof(StringEnumConverter))]
+        public SuppressionCause Cause { get; set; }
 
         /// <summary>
         /// Is it possible to delete this suppression by calling suppression/delete method

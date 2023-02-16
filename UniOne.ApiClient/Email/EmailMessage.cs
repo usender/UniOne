@@ -19,7 +19,7 @@ namespace Sender.UniOne.ApiClient.Email
             Recipients = new List<Recipient>();
             Attachments = new List<Attachment>();
             InlineAttachments = new List<Attachment>();
-            TemplateEngine = TemplateEngineEnum.Simple;
+            TemplateEngine = TemplateEngine.Simple;
         }
 
         /// <summary>

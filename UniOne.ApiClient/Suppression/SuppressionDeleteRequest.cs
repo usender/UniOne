@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Apis;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sender.UniOne.ApiClient.Suppression
 {
@@ -10,6 +11,7 @@ namespace Sender.UniOne.ApiClient.Suppression
         /// <summary>
         /// An email to delete from suppression list
         /// </summary>
+        [Required]
         [JsonProperty("email")]
         public string Email { get; set; }
     }

@@ -15,7 +15,7 @@ namespace Sender.UniOne.ApiClient.Common
         /// </summary>
         [JsonProperty("template_engine")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public TemplateEngineEnum TemplateEngine { get; set; }
+        public TemplateEngine TemplateEngine { get; set; }
 
         /// <summary>
         /// Object, contains html and plaintext parts of the email

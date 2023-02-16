@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Apis;
 
 namespace Sender.UniOne.ApiClient.Tag
@@ -15,6 +16,7 @@ namespace Sender.UniOne.ApiClient.Tag
         /// <summary>
         /// Unique tag id
         /// </summary>
+        [Required]
         [JsonProperty("tag_id")]
         internal int TagId { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Sender.UniOne.ApiClient.Suppression
 {
@@ -13,7 +14,7 @@ namespace Sender.UniOne.ApiClient.Suppression
         /// <summary>
         /// Array of suppression objects
         /// </summary>
-        [JsonProperty("suppression")]
-        public Suppression Suppression { get; internal set; }
+        [JsonProperty("suppressions")]
+        public IReadOnlyCollection<Suppression> Suppressions { get; internal set; }
     }
 }
