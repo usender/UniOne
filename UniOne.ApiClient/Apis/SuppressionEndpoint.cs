@@ -7,12 +7,12 @@
         {
         }
 
-        internal ApiEndpoint Get => Path("get.json");
+        internal ApiEndpoint Get => Combine("get.json");
 
-        internal ApiEndpoint Delete => Path("delete.json");
+        internal ApiEndpoint Delete => Combine("delete.json");
 
-        internal ApiEndpoint Set => Path("set.json");
+        internal ApiEndpoint Set => Combine("set.json");
 
-        internal ApiEndpoint List => Path("list.json");
+        internal ApiEndpoint List => Combine("list.json");
     }
 }

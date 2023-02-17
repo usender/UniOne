@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Apis;
-using Sender.UniOne.ApiClient.Infrastructure.Exceptions;
+using System.Collections.Generic;
 
 namespace Sender.UniOne.ApiClient.Email
 {
@@ -23,14 +23,16 @@ namespace Sender.UniOne.ApiClient.Email
         [JsonProperty("message")]
         public EmailMessage Message { get; set; }
         
-        protected internal override void Validate()
+        protected internal override List<string> Validate()
         {
-            base.Validate();
+           var errors = base.Validate();
 
             if (Message.Recipients.Count > 500)
             {
-                throw new UniOneClientValidationException("Maximum number of recipients is 500");
+                errors.Add("Maximum number of recipients is 500");
             }
+
+            return errors;
         }
     }
 }

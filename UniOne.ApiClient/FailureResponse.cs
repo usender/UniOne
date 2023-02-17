@@ -29,5 +29,11 @@ namespace Sender.UniOne.ApiClient
         /// </summary>
         [JsonProperty("message")]
         public string Message { get; internal set; }
+
+        /// <summary>
+        /// Indicated if the message set from validation when parameter <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> set to true
+        /// </summary>
+        [JsonProperty("is_client_validation")]
+        public bool IsFromClientValidation { get; internal set; }
     }
 }

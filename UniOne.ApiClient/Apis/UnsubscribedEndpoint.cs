@@ -7,10 +7,10 @@
         {
         }
 
-        internal ApiEndpoint Set => Path("set.json");
+        internal ApiEndpoint Set => Combine("set.json");
 
-        internal ApiEndpoint Check => Path("check.json");
+        internal ApiEndpoint Check => Combine("check.json");
 
-        internal ApiEndpoint List => Path("list.json");
+        internal ApiEndpoint List => Combine("list.json");
     }
 }
