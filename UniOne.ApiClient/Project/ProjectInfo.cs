@@ -33,5 +33,11 @@ namespace Sender.UniOne.ApiClient.Project
         /// </summary>
         [JsonProperty("custom_unsubscribe_url_enabled")]
         public bool? CustomUnsubscribeUrlEnabled { get; set; }
+
+        /// <summary>
+        /// A unique domain identifier which will determine the tracking domain or dedicated IP pool to be used by default. If the value is not specified, a default system backend domain will be assigned for our account or project instead
+        /// </summary>
+        [JsonProperty("backend_id")]
+        public int? BackendId { get; set; }
     }
 }
