@@ -60,5 +60,33 @@ namespace Sender.UniOne.ApiClient.Email
         /// </summary>
         [JsonProperty("options")]
         public MessageOptions Options { get; set; }
+
+        /// <summary>
+        /// Default value false. If set to true, the global unavailability list will be ignored. Even if the address was found to be unreachable while sending other UniOne users’ emails, or its owner has issued complaints, the message will still be sent. The setting may be ignored for certain addresses
+        /// </summary>
+        [JsonProperty("bypass_global")]
+        [JsonConverter(typeof(IntToBoolConverter))]
+        public bool BypassGlobal { get; set; }
+
+        /// <summary>
+        /// If set to true, the current user’s or project’s unavailability list will be ignored. Works only if bypass_global is set to true
+        /// </summary>
+        [JsonProperty("bypass_unavailable")]
+        [JsonConverter(typeof(IntToBoolConverter))]
+        public bool BypassUnavailable { get; set; }
+
+        /// <summary>
+        ///  Default value false. If set to true, the current list of unsubscribed addresses for this account or project will be ignored. Works only if bypass_global is set to 1. The setting is available only for users that have been granted the right to omit the unsubscribe link
+        /// </summary>
+        [JsonProperty("bypass_unsubscribed")]
+        [JsonConverter(typeof(IntToBoolConverter))]
+        public bool BypassUnsubscribed { get; set; }
+
+        /// <summary>
+        /// Default value false. If set to true, the user’s or project’s complaint list will be ignored. Works only if bypass_global is set to true.
+        /// </summary>
+        [JsonProperty("bypass_complained")]
+        [JsonConverter(typeof(IntToBoolConverter))]
+        public bool BypassComplained { get; set; }
     }
 }

@@ -5,6 +5,7 @@ namespace Sender.UniOne.ApiClient.Common
     public class Page
     {
         public Page()
+            : this(50, 0)
         {
 
         }
@@ -19,7 +20,7 @@ namespace Sender.UniOne.ApiClient.Common
         /// Entry count
         /// </summary>
         [JsonProperty("limit")]
-        public int Limit { get; set; } = 50;
+        public int Limit { get; set; }
 
         /// <summary>
         /// Offset entries
