@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Apis;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sender.UniOne.ApiClient.Suppression
 {
@@ -8,6 +9,7 @@ namespace Sender.UniOne.ApiClient.Suppression
         /// <summary>
         /// Email to get suppression details for
         /// </summary>
+        [Required]
         [JsonProperty("email")]
         public string Email { get; set; }
 
@@ -17,6 +19,6 @@ namespace Sender.UniOne.ApiClient.Suppression
         [JsonProperty("all_projects")]
         public bool AllProjects { get; set; }
 
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Suppression.Get;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Suppression.Get;
     }
 }

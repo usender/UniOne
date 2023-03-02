@@ -10,25 +10,19 @@ namespace Sender.UniOne.ApiClient.EventDump
         /// Dump ID received by the method event-dump/create.
         /// </summary>
         [JsonProperty("dump_id")]
-        public string DumpId { get; set; }
-
-        /// <summary>
-        /// Dump ID received by the method event-dump/create.
-        /// </summary>
-        [JsonProperty("event_dumps")]
-        public string EventDumps { get; set; }
+        public string DumpId { get; internal set; }
 
         /// <summary>
         /// Task status, possible values are:
         /// </summary>
         [JsonProperty("dump_status", ItemConverterType = typeof(StringEnumConverter))]
-        public EventDumpStatus DumpStatus { get; set; }
+        public EventDumpStatus DumpStatus { get; internal set; }
 
         /// <summary>
         /// An array of objects, each representing a file, ready for download. You may start downloading everything listed in “files” even if “dump_status” is still “in_process”. If there are no events, according to the specified parameters, an empty array will be returned.
         /// </summary>
         [JsonProperty("files")]
-        public List<EventDumpFile> Files { get; set; }
+        public List<EventDumpFile> Files { get; internal set; }
     }
 
     public class EventDumpFile
@@ -37,12 +31,12 @@ namespace Sender.UniOne.ApiClient.EventDump
         /// Use this unique URL to download the requested dump file (either .csv or .csv.gz, depending on your request).
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public string Url { get; internal set; }
 
         /// <summary>
         /// File size.
         /// </summary>
         [JsonProperty("size")]
-        public int Size { get; set; }
+        public int Size { get; internal set; }
     }
 }

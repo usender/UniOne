@@ -6,7 +6,7 @@ namespace Sender.UniOne.ApiClient.Domain
 {
     internal class DomainListRequest : PageRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Domain.List;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Domain.List;
 
         public DomainListRequest(string domain, Page page)
             : base(page)

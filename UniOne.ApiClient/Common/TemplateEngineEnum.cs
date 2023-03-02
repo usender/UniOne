@@ -2,7 +2,7 @@
 
 namespace Sender.UniOne.ApiClient.Common
 {
-    public enum TemplateEngineEnum
+    public enum TemplateEngine
     {
         [EnumMember(Value = "none")]
         None,

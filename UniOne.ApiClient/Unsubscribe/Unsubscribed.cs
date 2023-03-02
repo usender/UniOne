@@ -9,12 +9,12 @@ namespace Sender.UniOne.ApiClient.Unsubscribe
         /// Unsubscribed email.
         /// </summary>
         [JsonProperty("address")]
-        public string EmailAddress { get; set; }
+        public string EmailAddress { get; internal set; }
 
         /// <summary>
         /// Date and time when a recipient unsubscribed, in UTC timezone 
         /// </summary>
         [JsonProperty("unsubscribed_on")]
-        public DateTime UnsubscribedOnUtc { get; set; }
+        public DateTime UnsubscribedOnUtc { get; internal set; }
     }
 }

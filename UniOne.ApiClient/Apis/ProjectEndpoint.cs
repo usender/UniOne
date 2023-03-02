@@ -7,12 +7,12 @@
         {
         }
 
-        internal ApiEndpoint Create => Path("create.json");
+        internal ApiEndpoint Create => Combine("create.json");
 
-        internal ApiEndpoint Update => Path("update.json");
+        internal ApiEndpoint Update => Combine("update.json");
 
-        internal ApiEndpoint Delete => Path("delete.json");
+        internal ApiEndpoint Delete => Combine("delete.json");
 
-        internal ApiEndpoint List => Path("list.json");
+        internal ApiEndpoint List => Combine("list.json");
     }
 }

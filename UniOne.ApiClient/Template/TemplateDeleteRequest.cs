@@ -1,18 +1,23 @@
 ﻿using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Apis;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sender.UniOne.ApiClient.Template
 {
     internal class TemplateDeleteRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Template.Delete;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Template.Delete;
 
-        public TemplateDeleteRequest(string id)
+        internal TemplateDeleteRequest(string id)
         {
             Id = id;
         }
 
+        /// <summary>
+        /// Template id
+        /// </summary>
+        [Required]
         [JsonProperty("id")]
-        public string Id { get; set; }
+        internal string Id { get; set; }
     }
 }

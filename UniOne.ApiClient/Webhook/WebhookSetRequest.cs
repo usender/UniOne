@@ -20,11 +20,12 @@ namespace Sender.UniOne.ApiClient.Webhook
             Events = webhookSet.Events;
         }
 
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Webhook.List;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Webhook.List;
 
         /// <summary>
         /// URL that will receive the notification when an event occurs. The URL should be unique for a user or a project. Only ASCII characters are supported for now in URL, please convert to Punycode if you need to use non-ASCII characters
         /// </summary>
+        [Required]
         [JsonProperty("url")]
         public string Url { get; set; }
 
@@ -33,7 +34,7 @@ namespace Sender.UniOne.ApiClient.Webhook
         /// </summary>
         [JsonProperty("status")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public WebhookStatus Status { get; set; }
+        public WebhookStatus? Status { get; set; }
 
         /// <summary>
         /// Notification format. “json_post”(default) or “json_post_gzip”

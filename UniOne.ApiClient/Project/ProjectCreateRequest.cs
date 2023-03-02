@@ -5,7 +5,7 @@ namespace Sender.UniOne.ApiClient.Project
 {
     internal class ProjectCreateRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Project.Create;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Project.Create;
 
         public ProjectCreateRequest(ProjectInfo project)
         {

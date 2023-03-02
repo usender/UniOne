@@ -15,7 +15,7 @@ namespace Sender.UniOne.ApiClient.Email
         public DateTime? SendAt { get; set; }
 
         /// <summary>
-        /// Custom unsubscribe link. Read more <see cref="https://docs.unione.io/unsubscribe-link"/>.
+        /// Custom unsubscribe link. Read more <see cref="http://docs.unione.io/unsubscribe-link"/>.
         /// </summary>
         [JsonProperty("unsubscribe_url")]
         public string UnsubscribeUrl { get; set; }
@@ -24,7 +24,7 @@ namespace Sender.UniOne.ApiClient.Email
         /// Backend-domain identifier to send message with.
         /// </summary>
         [JsonProperty("custom_backend_id")]
-        public string CustomBackendId { get; set; }
+        public int? CustomBackendId { get; set; }
 
         /// <summary>
         /// SMTP pool identifier to send message with. If smtp_pool_id is not set, default one for your account/project will be used. You can pay for one or more dedicated IPs and use this option to choose sending using dedicated IP or common pool.

@@ -6,18 +6,18 @@
     public class ApiEndpoint
     {
         /// <summary>
-        /// 
+        /// Url
         /// </summary>
-        private const string PREFIX_ENDPOINT = "transactional/api/v1";
+        internal string Url { get; private set; } = "transactional/api/v1";
 
-        /// <summary>
-        /// Uri
-        /// </summary>
-        internal string Uri { get; private set; } = PREFIX_ENDPOINT;
+        private ApiEndpoint()
+        {
+
+        }
 
         protected ApiEndpoint(string url)
         {
-            Path(url);
+            Url += $"/{url}";
         }
 
         /// <summary>
@@ -73,12 +73,13 @@
         /// <summary>
         /// Merge path
         /// </summary>
-        /// <param name="url">Postfix of url</param>
+        /// <param name="endOfUrl">Postfix of url</param>
         /// <returns></returns>
-        protected ApiEndpoint Path(string url)
+        protected ApiEndpoint Combine(string endOfUrl)
         {
-            Uri += "/" + url;
-            return this;
+            var apiEndpoint = new ApiEndpoint();
+            apiEndpoint.Url = $"{Url}/{endOfUrl}";
+            return apiEndpoint;
         }
     }
 }
