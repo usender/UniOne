@@ -3,7 +3,7 @@ using System;
 
 namespace Sender.UniOne.ApiClient.Project
 {
-    public class ProjectView
+    public class ProjectItem
     {
         /// <summary>
         /// Unique project identifier, ASCII string up to 36 characters long

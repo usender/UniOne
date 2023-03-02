@@ -13,6 +13,9 @@ namespace Sender.UniOne.ApiClient.Template
             Template = template;
         }
 
+        /// <summary>
+        /// Object with all the template properties.
+        /// </summary>
         [Required]
         [JsonProperty("template")]
         public TemplateMessage Template { get; set; }
