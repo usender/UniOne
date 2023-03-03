@@ -1,11 +1,12 @@
 [![NuGet](https://img.shields.io/nuget/v/Sender.UniOne.ApiClient)](https://www.nuget.org/packages/Sender.UniOne.ApiClient)
 [![License](https://img.shields.io/github/license/usender/unione)](https://img.shields.io/github/license/usender/unione)
 
-UniOne is an open source framework for automated transactional email system. Unione allows you to work with API from any .NET application
+UniOne is an open source framework for automated transactional email system. Unione allows you to work with API from any .NET application. 
+Updated to version **1.44** [changelog](https://docs.unione.io/en/api-changelog)
 
-## UniOne <img src="https://docs.unione.io/assets/slate/img/logo-unione.svg" width="128"/>
+## <img src="https://eu1.unione.io/public/build/images/user-icon-unione.e5ec6334.png" width="64"/>
 ## Official page
-https://docs.unione.io
+[https://docs.unione.io](https://unione.io)
 
 ## Documentation
 [Official UniOne Documentation](https://docs.unione.io/en/web-api-ref?http#web-api)
@@ -61,6 +62,50 @@ namespace Sender.UniOne.Test
 
             Console.ReadKey();
         }
+    }
+}
+```
+# Use email [substitution](https://github.com/usender/unione/blob/master/UniOne.ApiClient/Email/Substitution.cs)
+## Method 1 (use inheritance class)
+```
+public class Example
+{
+    public void Do()
+    {
+        var emailMessage = new EmailMessage();
+        emailMessage.Recipients.Add(new Recipient("some@email.com")
+        {
+            Substitutions = new LocalSubstitution
+            {
+                ToName = "some name",
+                CustomerId = "123"
+            }
+        });
+    }
+
+    public class LocalSubstitution : Substitution
+    {
+        public string CustomerId { get; set; }
+    }
+}
+```
+
+## Method 2  (use as dictionary)
+```
+public class Example
+{
+    public void Do()
+    {
+        var emailMessage = new EmailMessage();
+
+        var substitutions = new Substitution();
+        substitutions.ToName = "some name";
+        substitutions.Add("CustomerId", "123");
+
+        emailMessage.Recipients.Add(new Recipient("some@email.com")
+        {
+            Substitutions = substitutions
+        });
     }
 }
 ```
