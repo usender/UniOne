@@ -464,13 +464,6 @@ namespace Sender.UniOne.ApiClient
 
         #endregion
 
-        /// <summary>
-        /// Get response 
-        /// </summary>
-        /// <typeparam name="T">Response object</typeparam>
-        /// <param name="request">Request object</param>
-        /// <exception>Occurs when there is an HttpStatusCode 50x <see cref="HttpStatusCode"/></exception>
-        /// <returns></returns>
         private async Task<T> GetResponseAsync<T>(BaseRequest request) where T : BaseResponse, new()
         {
             request.ApiKey = _settings.ApiKey;
@@ -482,11 +475,9 @@ namespace Sender.UniOne.ApiClient
                {
                    return new T
                    {
-                       Failure = new FailureResponse
+                       Failure = new FailureResponse((int)HttpStatusCode.BadRequest, errors[0])
                        {
-                           Message = errors[0],
-                           IsFromClientValidation = true,
-                           Code = (int)HttpStatusCode.BadRequest
+                           IsFromClientValidation = true
                        }
                    };
                 }
@@ -507,8 +498,7 @@ namespace Sender.UniOne.ApiClient
                 return content.FromJson<T>();
             }
 
-            if (response.StatusCode >= HttpStatusCode.BadRequest &&
-                response.StatusCode <= HttpStatusCode.InternalServerError)
+            if (response.StatusCode >= HttpStatusCode.BadRequest && response.StatusCode <= HttpStatusCode.InternalServerError)
             {
                 var failure = content.FromJson<FailureResponse>();
                 if (failure.Code == 0)

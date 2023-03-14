@@ -3,7 +3,7 @@
     /// <summary>
     /// API endpoints
     /// </summary>
-    public class ApiEndpoint
+    internal class ApiEndpoint
     {
         /// <summary>
         /// Url
