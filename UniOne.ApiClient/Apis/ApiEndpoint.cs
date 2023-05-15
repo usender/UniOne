@@ -71,6 +71,11 @@
         internal static TagEndpoint Tag => new TagEndpoint();
 
         /// <summary>
+        /// Email-validation endpoints
+        /// </summary>
+        internal static EmailValidationEndpoints EmailValidation => new EmailValidationEndpoints();
+
+        /// <summary>
         /// Merge path
         /// </summary>
         /// <param name="endOfUrl">Postfix of url</param>

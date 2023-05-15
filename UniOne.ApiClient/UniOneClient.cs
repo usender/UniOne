@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Sender.UniOne.ApiClient.Common;
 using Sender.UniOne.ApiClient.Domain;
 using Sender.UniOne.ApiClient.Email;
+using Sender.UniOne.ApiClient.EmailValidation;
 using Sender.UniOne.ApiClient.EventDump;
 using Sender.UniOne.ApiClient.Infrastructure.Extensions;
 using Sender.UniOne.ApiClient.Infrastructure.Helpers;
@@ -460,6 +461,20 @@ namespace Sender.UniOne.ApiClient
         {
             var request = new TagDeleteRequest(tagId);
             return GetResponseAsync<TagDeleteResponse>(request);
+        }
+
+        #endregion
+        
+        #region Email validation
+
+        /// <summary>
+        /// Email validation methods. As a result of the check, you’ll get detailed information on email validity.
+        /// </summary>
+        /// <returns></returns>
+        public Task<EmailValidationSingleResponse> EmailValidationSingleAsync(string email)
+        {
+            var request = new EmailValidationSingleRequest(email);
+            return GetResponseAsync<EmailValidationSingleResponse>(request);
         }
 
         #endregion
