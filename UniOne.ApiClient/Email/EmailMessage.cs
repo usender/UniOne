@@ -42,7 +42,7 @@ namespace Sender.UniOne.ApiClient.Email
         public bool SkipUnsubscribed { get; set; }
 
         /// <summary>
-        /// The language of the unsubscribe footer and unsubscribe page. Languages supported “ru”, “en”, “ua”, “be”, “es”, “fr”, “pl”, “de”, “pt”, “it”.
+        /// The language of the unsubscribe footer and unsubscribe page. Languages supported “be”, “de”, “en”, “es”, “fr”, “it”, “pl”, “pt”, “ru”, “ua”, “kz”.
         /// </summary>
         [JsonProperty("global_language")]
         public string GlobalLanguage { get; set; }

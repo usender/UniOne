@@ -464,7 +464,7 @@ namespace Sender.UniOne.ApiClient
         }
 
         #endregion
-        
+
         #region Email validation
 
         /// <summary>
@@ -485,16 +485,16 @@ namespace Sender.UniOne.ApiClient
 
             if (_settings.IsNeedValidatingRequestBeforeSending)
             {
-               var errors = request.Validate();
-               if (errors.Count > 0)
-               {
-                   return new T
-                   {
-                       Failure = new FailureResponse((int)HttpStatusCode.BadRequest, errors[0])
-                       {
-                           IsFromClientValidation = true
-                       }
-                   };
+                var errors = request.Validate();
+                if (errors.Count > 0)
+                {
+                    return new T
+                    {
+                        Failure = new FailureResponse((int)HttpStatusCode.BadRequest, errors[0])
+                        {
+                            IsClientValidation = true
+                        }
+                    };
                 }
             }
 

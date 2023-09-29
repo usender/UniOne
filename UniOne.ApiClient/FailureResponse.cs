@@ -28,12 +28,12 @@ namespace Sender.UniOne.ApiClient
         /// Human-readable error message
         /// </summary>
         [JsonProperty("message")]
-        public string Message { get; internal set; }
+        public string Message { get; }
 
         /// <summary>
         /// Indicated if the message set from validation when parameter <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> set to true
         /// </summary>
         [JsonProperty("is_client_validation")]
-        public bool IsFromClientValidation { get; internal set; }
+        public bool IsClientValidation { get; internal set; }
     }
 }
