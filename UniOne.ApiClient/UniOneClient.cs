@@ -255,7 +255,7 @@ namespace Sender.UniOne.ApiClient
         /// </summary>
         /// <param name="filter">Filter object</param>
         /// <returns></returns>
-        public Task<SuppressionListResponse> SuppressionListAsync(SuppressionList filter)
+        public Task<SuppressionListResponse> SuppressionListAsync(SuppressionFilter filter)
         {
             var request = new SuppressionListRequest
             {
@@ -513,7 +513,7 @@ namespace Sender.UniOne.ApiClient
                 return content.FromJson<T>();
             }
 
-            if (response.StatusCode >= HttpStatusCode.BadRequest && response.StatusCode <= HttpStatusCode.InternalServerError)
+            if (response.StatusCode >= HttpStatusCode.BadRequest && response.StatusCode < HttpStatusCode.InternalServerError)
             {
                 var failure = content.FromJson<FailureResponse>();
                 if (failure.Code == 0)
@@ -527,8 +527,8 @@ namespace Sender.UniOne.ApiClient
                 };
             }
 
-            var message = response.StatusCode > HttpStatusCode.InternalServerError
-                ? "We had a problem with server (might be 500, 502, 503 etc.). Please try again later"
+            var message = response.StatusCode >= HttpStatusCode.InternalServerError
+                ? "We had a problem with server. (might be 500, 502, 503 etc.). Please try again later"
                 : $"Unknown error. Details: HTTP StatusCode = {(int)response.StatusCode}, Content = {content}";
 
             return new T
