@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Sender.UniOne.ApiClient.Apis;
 using Sender.UniOne.ApiClient.Infrastructure.JsonConverters;
 using Sender.UniOne.ApiClient.Webhook.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sender.UniOne.ApiClient.Webhook
 {

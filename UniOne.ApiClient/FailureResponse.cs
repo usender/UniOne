@@ -7,7 +7,7 @@ namespace Sender.UniOne.ApiClient
     /// </summary>
     public class FailureResponse
     {
-        public FailureResponse()
+        internal FailureResponse()
         {
 
         }

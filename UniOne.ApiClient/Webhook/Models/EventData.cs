@@ -1,6 +1,6 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Common;
+using System;
 
 namespace Sender.UniOne.ApiClient.Webhook.Models
 {
