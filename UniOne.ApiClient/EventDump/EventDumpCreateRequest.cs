@@ -7,12 +7,12 @@ namespace Sender.UniOne.ApiClient.EventDump
 {
     internal class EventDumpCreateRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.EventDump.Create;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.EventDump.Create;
 
         internal EventDumpCreateRequest()
         {
             Limit = 50;
-            Format = EventDumpFormatEnum.Csv;
+            Format = EventDumpFormat.Csv;
             Filter = new EventDumpFilter();
         }
 
@@ -50,7 +50,7 @@ namespace Sender.UniOne.ApiClient.EventDump
         /// File format, either “csv” (default) or “csv_gzip”.
         /// </summary>
         [JsonProperty("format", ItemConverterType = typeof(StringEnumConverter))]
-        internal EventDumpFormatEnum? Format { get; set; }
+        internal EventDumpFormat? Format { get; set; }
 
         /// <summary>
         /// An object with the properties of the event dump filter.

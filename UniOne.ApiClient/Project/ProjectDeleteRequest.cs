@@ -8,6 +8,6 @@ namespace Sender.UniOne.ApiClient.Project
             : base(project)
         { }
 
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Project.Delete;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Project.Delete;
     }
 }

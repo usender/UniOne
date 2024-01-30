@@ -7,8 +7,8 @@
         {
         }
 
-        internal ApiEndpoint Send => Path("send.json");
+        internal ApiEndpoint Send => Combine("send.json");
 
-        internal ApiEndpoint Subscribe => Path("subscribe.json");
+        internal ApiEndpoint Subscribe => Combine("subscribe.json");
     }
 }

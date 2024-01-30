@@ -13,7 +13,7 @@ namespace Sender.UniOne.ApiClient.Suppression
         /// <summary>
         /// Array of suppression objects
         /// </summary>
-        [JsonProperty("suppression")]
-        public Suppression Suppression { get; internal set; }
+        [JsonProperty("suppressions")]
+        public Suppression[] Suppressions { get; internal set; }
     }
 }

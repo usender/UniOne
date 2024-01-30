@@ -5,7 +5,7 @@ namespace Sender.UniOne.ApiClient.Project
 {
     internal class ProjectUpdateRequest : ProjectIdentifierRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Project.Update;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Project.Update;
 
         public ProjectUpdateRequest(ProjectIdentifier identifier, ProjectInfo project) 
             : base(identifier)
@@ -13,6 +13,9 @@ namespace Sender.UniOne.ApiClient.Project
             Project = project;
         }
 
+        /// <summary>
+        /// Object with project properties
+        /// </summary>
         [JsonProperty("project")]
         public ProjectInfo Project { get; set; }
     }

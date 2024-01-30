@@ -7,7 +7,7 @@ namespace Sender.UniOne.ApiClient.Unsubscribe
 {
     internal class UnsubscribedListRequest : BaseRequest
     {
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Unsubscribed.List;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Unsubscribed.List;
 
         internal UnsubscribedListRequest(DateTime dateFrom)
         {
@@ -19,6 +19,6 @@ namespace Sender.UniOne.ApiClient.Unsubscribe
         /// </summary>
         [JsonProperty("date_from")]
         [JsonConverter(typeof(DateOnlyConverter))]
-        public DateTime DateFromUtc { get; set; }
+        public DateTime? DateFromUtc { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using Newtonsoft.Json;
+using Sender.UniOne.ApiClient.Attributes;
 
 namespace Sender.UniOne.ApiClient.Common
 {
@@ -30,12 +31,15 @@ namespace Sender.UniOne.ApiClient.Common
         /// <summary>
         /// MIME type. If unsure, use “application/octet-stream”
         /// </summary>
+        [Required]
         [JsonProperty("type")]
         public string Type { get; set; } = "application/octet-stream";
 
         /// <summary>
         /// Attachment name
         /// </summary>
+        [Required]
+        [AttachmentNameValidation]
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -43,6 +47,7 @@ namespace Sender.UniOne.ApiClient.Common
         /// File in base64, for using in HTML should be set as "<img src="cid:IMAGECID">"
         /// Maximum file size 7MB (9786710 bytes in base64).
         /// </summary>
+        [Required]
         [JsonProperty("content")]
         [MaxLength(9786710)]
         public string Content { get; set; }

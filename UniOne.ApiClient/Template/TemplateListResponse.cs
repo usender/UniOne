@@ -4,7 +4,10 @@ namespace Sender.UniOne.ApiClient.Template
 {
     public class TemplateListResponse : BaseResponse
     {
+        /// <summary>
+        /// Array of template objects
+        /// </summary>
         [JsonProperty("templates")]
-        public TemplateLMessageView[] Templates { get; internal set; }
+        public TemplateLMessageItem[] Templates { get; internal set; }
     }
 }

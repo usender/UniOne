@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sender.UniOne.ApiClient.Unsubscribe
 {
@@ -12,6 +13,7 @@ namespace Sender.UniOne.ApiClient.Unsubscribe
         /// <summary>
         /// Email address to unsubscribed or check
         /// </summary>
+        [Required]
         [JsonProperty("address")]
         public string EmailAddress { get; set; }
     }

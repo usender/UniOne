@@ -9,6 +9,6 @@ namespace Sender.UniOne.ApiClient.EventDump
         /// An object with the properties of the event dump
         /// </summary>
         [JsonProperty("event_dumps")]
-        public List<EventDump> EventDumps { get; set; }
+        public List<EventDump> EventDumps { get; internal set; }
     }
 }

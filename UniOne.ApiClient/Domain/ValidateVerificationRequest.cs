@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Apis;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sender.UniOne.ApiClient.Domain
 {
@@ -10,11 +11,12 @@ namespace Sender.UniOne.ApiClient.Domain
             Domain = domain;
         }
 
-        internal override ApiEndpoint ApiEndpoint => ApiEndpoint.Domain.ValidateVerificationRecord;
+        internal override ApiEndpoint Endpoint => ApiEndpoint.Domain.ValidateVerificationRecord;
 
         /// <summary>
         /// Domain to validate verification record for
         /// </summary>
+        [Required]
         [JsonProperty("domain")]
         public string Domain { get; set; }
     }

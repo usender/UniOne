@@ -6,7 +6,9 @@ namespace Sender.UniOne.ApiClient.Infrastructure.Extensions
     {
         private static readonly JsonSerializerSettings DefaultSerializerSettings = new JsonSerializerSettings
         {
-            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+            DateFormatHandling = DateFormatHandling.IsoDateFormat,
+            DateFormatString = "yyyy-MM-dd HH:mm:ss"
         };
 
         public static string ToJson(this object value)

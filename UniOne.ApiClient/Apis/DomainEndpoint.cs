@@ -6,12 +6,12 @@
             : base("domain")
         { }
 
-        internal ApiEndpoint GetDnsRecords => Path("get-dns-records.json");
+        internal ApiEndpoint GetDnsRecords => Combine("get-dns-records.json");
 
-        internal ApiEndpoint ValidateVerificationRecord => Path("validate-verification-record.json");
+        internal ApiEndpoint ValidateVerificationRecord => Combine("validate-verification-record.json");
 
-        internal ApiEndpoint ValidateDkim => Path("validate-dkim.json");
+        internal ApiEndpoint ValidateDkim => Combine("validate-dkim.json");
 
-        internal ApiEndpoint List => Path("list.json");
+        internal ApiEndpoint List => Combine("list.json");
     }
 }

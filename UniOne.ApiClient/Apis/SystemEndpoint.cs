@@ -10,6 +10,6 @@
         /// <summary>
         /// API end part of endpoint
         /// </summary>
-        internal ApiEndpoint Info => Path("info.json");
+        internal ApiEndpoint Info => Combine("info.json");
     }
 }

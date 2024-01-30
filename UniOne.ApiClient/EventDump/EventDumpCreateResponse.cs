@@ -8,6 +8,6 @@ namespace Sender.UniOne.ApiClient.EventDump
         /// Dump identifier, used to call the event-dump/get method.
         /// </summary>
         [JsonProperty("dump_id")]
-        internal string DumpId { get; set; }
+        public string DumpId { get; internal set; }
     }
 }
