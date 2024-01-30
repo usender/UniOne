@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/github/license/usender/unione)](https://img.shields.io/github/license/usender/unione)
 
 UniOne is an open source framework for automated transactional email system. Unione allows you to work with API from any .NET application. 
-Updated to version **1.44** [changelog](https://docs.unione.io/en/api-changelog)
+Updated to version **1.56** [changelog](https://docs.unione.io/en/api-changelog)
 
 ## <img src="https://eu1.unione.io/public/build/images/user-icon-unione.e5ec6334.png" width="64"/>
 ## Official page
