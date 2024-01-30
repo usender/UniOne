@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Sender.UniOne.ApiClient.Common;
 using Sender.UniOne.ApiClient.Domain;
 using Sender.UniOne.ApiClient.Email;
+using Sender.UniOne.ApiClient.EmailValidation;
 using Sender.UniOne.ApiClient.EventDump;
 using Sender.UniOne.ApiClient.Infrastructure.Extensions;
 using Sender.UniOne.ApiClient.Infrastructure.Helpers;
@@ -254,7 +255,7 @@ namespace Sender.UniOne.ApiClient
         /// </summary>
         /// <param name="filter">Filter object</param>
         /// <returns></returns>
-        public Task<SuppressionListResponse> SuppressionListAsync(SuppressionList filter)
+        public Task<SuppressionListResponse> SuppressionListAsync(SuppressionFilter filter)
         {
             var request = new SuppressionListRequest
             {
@@ -464,22 +465,36 @@ namespace Sender.UniOne.ApiClient
 
         #endregion
 
+        #region Email validation
+
+        /// <summary>
+        /// Email validation methods. As a result of the check, you’ll get detailed information on email validity.
+        /// </summary>
+        /// <returns></returns>
+        public Task<EmailValidationSingleResponse> EmailValidationSingleAsync(string email)
+        {
+            var request = new EmailValidationSingleRequest(email);
+            return GetResponseAsync<EmailValidationSingleResponse>(request);
+        }
+
+        #endregion
+
         private async Task<T> GetResponseAsync<T>(BaseRequest request) where T : BaseResponse, new()
         {
             request.ApiKey = _settings.ApiKey;
 
             if (_settings.IsNeedValidatingRequestBeforeSending)
             {
-               var errors = request.Validate();
-               if (errors.Count > 0)
-               {
-                   return new T
-                   {
-                       Failure = new FailureResponse((int)HttpStatusCode.BadRequest, errors[0])
-                       {
-                           IsFromClientValidation = true
-                       }
-                   };
+                var errors = request.Validate();
+                if (errors.Count > 0)
+                {
+                    return new T
+                    {
+                        Failure = new FailureResponse((int)HttpStatusCode.BadRequest, errors[0])
+                        {
+                            IsClientValidation = true
+                        }
+                    };
                 }
             }
 
@@ -498,7 +513,7 @@ namespace Sender.UniOne.ApiClient
                 return content.FromJson<T>();
             }
 
-            if (response.StatusCode >= HttpStatusCode.BadRequest && response.StatusCode <= HttpStatusCode.InternalServerError)
+            if (response.StatusCode >= HttpStatusCode.BadRequest && response.StatusCode < HttpStatusCode.InternalServerError)
             {
                 var failure = content.FromJson<FailureResponse>();
                 if (failure.Code == 0)
@@ -512,8 +527,8 @@ namespace Sender.UniOne.ApiClient
                 };
             }
 
-            var message = response.StatusCode > HttpStatusCode.InternalServerError
-                ? "We had a problem with server (might be 500, 502, 503 etc.). Please try again later"
+            var message = response.StatusCode >= HttpStatusCode.InternalServerError
+                ? "We had a problem with server. (might be 500, 502, 503 etc.). Please try again later"
                 : $"Unknown error. Details: HTTP StatusCode = {(int)response.StatusCode}, Content = {content}";
 
             return new T

@@ -6,11 +6,13 @@ namespace Sender.UniOne.ApiClient.Common
 {
     public class Header : LimitedDictionary<Header>
     {
+        private const int MAX_COUNT = 50;
+
         private readonly string[] _allowHeaderNames = new[]
             {"List-Unsubscribe", "List-Subscribe", "List-Help", "List-Owner", "List-Archive"};
 
         public Header() 
-            : base(50)
+            : base(MAX_COUNT)
         {
         }
 

@@ -1,6 +1,6 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Sender.UniOne.ApiClient.Common;
+using System;
 
 namespace Sender.UniOne.ApiClient.Webhook.Models
 {
@@ -37,7 +37,7 @@ namespace Sender.UniOne.ApiClient.Webhook.Models
         /// Event date & time in UTC time zone. This property exists only if event_name=“transactional_email_status”
         /// </summary>
         [JsonProperty("event_time")]
-        public DateTime? DateTime { get; set; }
+        public DateTime? EventTime { get; set; }
 
         /// <summary>
         /// URL for “opened” and “clicked” statuses. This property exists only if event_name=“transactional_email_status”

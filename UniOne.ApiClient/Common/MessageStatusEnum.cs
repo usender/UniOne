@@ -93,6 +93,13 @@ namespace Sender.UniOne.ApiClient.Common
         /// </summary>
         [Description("spam")]
         [EnumMember(Value = "spam")]
-        Spam = 128
+        Spam = 128,
+
+        /// <summary>
+        /// The message has been delivered to the recipient and read, but then the recipient unsubscribed and subscribed again. It can be changed to “unsubscribed”
+        /// </summary>
+        [Description("subscribed")]
+        [EnumMember(Value = "subscribed")]
+        Subscribed = 256
     }
 }

@@ -11,15 +11,16 @@ namespace Sender.UniOne.ApiClient.Email
     public class Substitution : DynamicObject, IDictionarySource
     {
         private const string TO_NAME = "to_name";
+        private const int TO_NAME_MAX_LENGTH = 78;
 
         private readonly Dictionary<string, string> _properties;
 
         /// <summary>
         /// Property use in message body. Use as {{to_name}}
-        /// There’s a special substitution “to_name” which is used to put recipent’s name like “Name Surname” to include it to SMTP header “To” in the form “Name Surname <email@example.com>”
+        /// There’s a special substitution “to_name” which is used to put recipient’s name like “Name Surname” to include it to SMTP header “To” in the form “Name Surname <email@example.com>”
         /// </summary>
         [JsonProperty(TO_NAME, NullValueHandling = NullValueHandling.Ignore)]
-        [MaxLength(78)]
+        [MaxLength(TO_NAME_MAX_LENGTH)]
         public string ToName { get; set; }
 
         public Dictionary<string, string> GetProperties()

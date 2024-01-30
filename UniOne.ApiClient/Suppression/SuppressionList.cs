@@ -1,35 +1,33 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 
 namespace Sender.UniOne.ApiClient.Suppression
 {
     public class SuppressionList
     {
         /// <summary>
-        /// Cause of email being suppressed. One of: unsubscribed, temporary_unavailable, permanent_unavailable, complained 
+        /// Email to get suppression details fo
         /// </summary>
-        public SuppressionCause? Cause { get; set; }
+        [JsonProperty("email")]
+        public string Email { get; internal set; }
 
         /// <summary>
-        /// Source of email being suppressed. One of:
-        ///  - user - suppressed by user with suppression/set;
-        ///  - system - sending to the email is prohibited by system, for example due to multiple hard bounces;
-        ///  - subscriber - the recipient reported spam or unsubscribed in the previous emails.
+        /// Cause of email being suppressed. One of
         /// </summary>
-        public string Source { get; set; }
+        [JsonProperty("cause", ItemConverterType = typeof(StringEnumConverter))]
+        public SuppressionCause Cause { get; internal set; }
 
         /// <summary>
-        /// Date in the format YYYY-MM-DD hh:mm:ss to get suppression list from the “start_time” to the present day. Ignored if “cursor” is not empty.
+        /// Is it possible to delete this suppression by calling suppression/delete method
         /// </summary>
-        public DateTime? StartTime { get; set; }
+        [JsonProperty("is_deletable")]
+        public bool IsDeletable { get; internal set; }
 
         /// <summary>
-        /// The parameter indicates from which position the selection is to be started. Must be empty or omitted for the first data chunk. In order to get subsequent chunks, you must set the “cursor” parameter in your request, using the value received in response to the previous request.
+        /// When suppression was created, in UTC timezone
         /// </summary>
-        public string Cursor { get; set; }
-
-        /// <summary>
-        /// Limits the number of records to be returned at one time, default is 50.
-        /// </summary>
-        public int? Limit { get; set; }
+        [JsonProperty("created")]
+        public DateTime CreatedDateUtc { get; internal set; }
     }
 }

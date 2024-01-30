@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Sender.UniOne.ApiClient.Infrastructure
 {
-    public class LimitedDictionary<T> : Dictionary<string, string>, IDictionarySource
+    public class LimitedDictionary<T> : Dictionary<string, string>//, IDictionarySource
     {
         private readonly int _maxCount;
 
@@ -33,24 +33,11 @@ namespace Sender.UniOne.ApiClient.Infrastructure
             }
         }
 
-        public void RemoveIfExist(string key)
+        public void RemoveIfContains(string key)
         {
             if (ContainsKey(key))
             {
                 Remove(key);
-            }
-        }
-
-        public virtual bool TryAdd(string key, string value)
-        {
-            try
-            {
-                Add(key, value);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
             }
         }
     }

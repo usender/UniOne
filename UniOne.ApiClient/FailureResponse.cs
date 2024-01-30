@@ -7,7 +7,7 @@ namespace Sender.UniOne.ApiClient
     /// </summary>
     public class FailureResponse
     {
-        public FailureResponse()
+        internal FailureResponse()
         {
 
         }
@@ -34,6 +34,6 @@ namespace Sender.UniOne.ApiClient
         /// Indicated if the message set from validation when parameter <see cref="UniOneSettings.IsNeedValidatingRequestBeforeSending"/> set to true
         /// </summary>
         [JsonProperty("is_client_validation")]
-        public bool IsFromClientValidation { get; internal set; }
+        public bool IsClientValidation { get; internal set; }
     }
 }
