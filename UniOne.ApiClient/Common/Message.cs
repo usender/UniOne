@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Sender.UniOne.ApiClient.Email;
 using Sender.UniOne.ApiClient.Infrastructure.JsonConverters;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sender.UniOne.ApiClient.Common
 {
@@ -69,6 +69,13 @@ namespace Sender.UniOne.ApiClient.Common
         [JsonProperty("reply_to")]
         [Required(AllowEmptyStrings = true)]
         public string ReplyTo { get; set; }
+
+        /// <summary>
+        /// Optional Reply-To name (in case it’s different to sender’s name)
+        /// </summary>
+        [JsonProperty("reply_to_name")]
+        [Required(AllowEmptyStrings = true)]
+        public string ReplyToName { get; set; }
 
         /// <summary>
         /// Optional object

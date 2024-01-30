@@ -10,7 +10,7 @@ namespace Sender.UniOne.Test
     {
         private static Client _client;
 
-        static async Task Main(string[] args)
+        static async Task Main()
         {
             var settings = new UniOneSettings
             {

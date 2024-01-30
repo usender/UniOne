@@ -1,4 +1,5 @@
-﻿using Sender.UniOne.ApiClient.Apis;
+﻿using System.ComponentModel.DataAnnotations;
+using Sender.UniOne.ApiClient.Apis;
 
 namespace Sender.UniOne.ApiClient.EmailValidation
 {
@@ -10,7 +11,10 @@ namespace Sender.UniOne.ApiClient.EmailValidation
         {
             Email = email;
         }
-
+        /// <summary>
+        /// Email address to be checked
+        /// </summary>
+        [Required(AllowEmptyStrings = false)]
         public string Email { get; set; }
     }
 }
